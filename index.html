@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fer Games - Portal de Juegos Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+        }
+        .neon-text {
+            text-shadow: 0 0 10px rgba(0, 255, 102, 0.6);
+        }
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="border-b border-gray-800 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-gamepad text-emerald-400 text-2xl"></i>
+                <span class="text-xl font-bold tracking-wider text-white">FER <span class="text-emerald-400">GAMES</span></span>
+            </div>
+            <div class="text-sm text-gray-400">
+                <span id="game-count" class="text-emerald-400 font-semibold">8</span> juegos disponibles
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 px-4 text-center bg-gradient-to-b from-gray-900 to-[#0b0f19] border-b border-gray-800">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">
+                FER <span class="text-emerald-400 neon-text">GAMES</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8">
+                Tu portal para jugar gratis en el navegador. ¡Acción, estrategia y diversión sin descargas!
+            </p>
+            <a href="#catalogo" class="inline-block bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold px-8 py-3 rounded-xl transition-all duration-300 neon-glow transform hover:-translate-y-1">
+                <i class="fa-solid fa-play mr-2"></i> Explorar Juegos
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content & Catalog -->
+    <main id="catalogo" class="container mx-auto px-4 py-12 flex-grow">
+        <!-- Search & Filters -->
+        <div class="mb-10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="w-full md:w-96 relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+                    <i class="fa-solid fa-search"></i>
+                </span>
+                <input type="text" id="search-input" placeholder="Buscar juegos..." class="w-full pl-10 pr-4 py-3 bg-gray-900 border border-gray-800 rounded-xl focus:outline-none focus:border-emerald-500 text-white placeholder-gray-500 transition">
+            </div>
+            <div class="flex flex-wrap gap-2 justify-center" id="category-filters">
+                <button class="filter-btn px-4 py-2 bg-emerald-500 text-gray-950 font-semibold rounded-lg text-sm transition" data-category="all">Todos</button>
+                <button class="filter-btn px-4 py-2 bg-gray-900 hover:bg-gray-800 text-gray-300 rounded-lg text-sm transition" data-category="estrategia">Estrategia</button>
+                <button class="filter-btn px-4 py-2 bg-gray-900 hover:bg-gray-800 text-gray-300 rounded-lg text-sm transition" data-category="mesa">Mesa y Clásicos</button>
+                <button class="filter-btn px-4 py-2 bg-gray-900 hover:bg-gray-800 text-gray-300 rounded-lg text-sm transition" data-category="accion">Acción / Misterio</button>
+            </div>
+        </div>
+
+        <!-- Game Grid -->
+        <div id="games-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- 1. Adivina un País -->
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="adivina un pais">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🌍</span>
+                    <span class="px-2.5 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/20">Clásico</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Adivina un País</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Pon a prueba tus conocimientos de geografía adivinando países del mundo.</p>
+                    <a href="https://1234567899ferty.github.io/xdxdnosabo/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>Jugar Ahora</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. Lotería Mexicana -->
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="loteria mexicana">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🎴</span>
+                    <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/20">Popular</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Lotería Mexicana</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Disfruta de la tradicional Lotería mexicana adaptada para navegador.</p>
+                    <a href="https://1234567899ferty.github.io/loteriaxdxd/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>Jugar Ahora</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Detecta al Asesino -->
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="detecta al asesino">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🕵️</span>
+                    <span class="px-2.5 py-1 bg-red-500/10 text-red-400 text-xs font-semibold rounded-full border border-red-500/20">Misterio</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Detecta al Asesino</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Busca pistas, analiza los escenarios y descubre quién es el culpable.</p>
+                    <a href="https://1234567899ferty.github.io/detectivesXD/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>Jugar Ahora</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. War Machines -->
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="estrategia" data-title="war machines">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">⚔️</span>
+                    <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 text-xs font-semibold rounded-full border border-amber-500/20">Acción</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">War Machines</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Combates tácticos y estrategia bélica directamente en tu pantalla.</p>
+                    <a href="https://1234567899ferty.github.io/guerra/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>Jugar Ahora</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. Cocina Mex -->
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="cocina mex">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🍳</span>
+                    <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/20">Nuevo</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Cocina Mex</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Prepara los mejores platillos de la gastronomía mexicana contra reloj.</p>
+                    <a href="https://1234567899ferty.github.io/cosinamex/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>Jugar Ahora</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 6. Serpientes y Escaleras -->
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="serpientes y escaleras">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🐍</span>
+                    <span class="px-2.5 py-1 bg-purple-500/10 text-purple-400 text-xs font-semibold rounded-full border border-purple-500/20">Clásico</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Serpientes y Escaleras</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">El clásico juego de mesa de toda la vida, ahora en versión digital.</p>
+                    <a href="https://1234567899ferty.github.io/serpientesyescaleras/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>Jugar Ahora</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 7. Ojo de Halcón -->
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="ojo de halcon">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">👁️</span>
+                    <span class="px-2.5 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-full border border-cyan-500/20">Precisión</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Ojo de Halcón</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Demuestra tu puntería y agudeza visual en este reto de reflejos.</p>
+                    <a href="https://1234567899ferty.github.io/ojo-de-alcon/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>Jugar Ahora</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 8. KEPO Alfa 1 -->
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="kepo alfa 1">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🎪</span>
+                    <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/20">Destacado</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">KEPO Alfa 1</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Una aventura llena de misterio y desafíos listos para resolverse.</p>
+                    <a href="https://1234567899ferty.github.io/kepo-alfa1/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>Jugar Ahora</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 bg-gray-950 py-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 <strong>Fer Games</strong>. Todos los derechos reservados. Creado para jugar gratis en el navegador.</p>
+    </footer>
+
+    <!-- Interactive Search and Filter Script -->
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const gameCards = document.querySelectorAll('.game-card');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        // Search logic
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            gameCards.forEach(card => {
+                const title = card.getAttribute('data-title');
+                if (title.includes(term)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Category filter logic
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-emerald-500', 'text-gray-950', 'font-semibold');
+                    b.classList.add('bg-gray-900', 'text-gray-300');
+                });
+                btn.classList.remove('bg-gray-900', 'text-gray-300');
+                btn.classList.add('bg-emerald-500', 'text-gray-950', 'font-semibold');
+
+                const category = btn.getAttribute('data-category');
+                gameCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
