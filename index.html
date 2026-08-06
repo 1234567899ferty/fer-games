@@ -69,6 +69,7 @@
 
         <!-- Game Grid -->
         <div id="games-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
             <!-- 1. Adivina un País -->
             <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="adivina un pais">
                 <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
@@ -78,10 +79,14 @@
                 <div class="p-6 flex flex-col flex-grow">
                     <h3 class="text-xl font-bold mb-2 text-white">Adivina un País</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Pon a prueba tus conocimientos de geografía adivinando países del mundo.</p>
-                    <a href="https://1234567899ferty.github.io/xdxdnosabo/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-gamepad"></i>
-                        <span>Jugar Ahora</span>
-                    </a>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/xdxdnosabo/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                        <button onclick="openModal('modal-adivina')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-book-open"></i><span>Instrucciones</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -94,10 +99,14 @@
                 <div class="p-6 flex flex-col flex-grow">
                     <h3 class="text-xl font-bold mb-2 text-white">Lotería Mexicana</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Disfruta de la tradicional Lotería mexicana adaptada para navegador.</p>
-                    <a href="https://1234567899ferty.github.io/loteriaxdxd/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-gamepad"></i>
-                        <span>Jugar Ahora</span>
-                    </a>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/loteriaxdxd/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                        <button onclick="openModal('modal-loteria')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-book-open"></i><span>Instrucciones</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -110,10 +119,14 @@
                 <div class="p-6 flex flex-col flex-grow">
                     <h3 class="text-xl font-bold mb-2 text-white">Detecta al Asesino</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Busca pistas, analiza los escenarios y descubre quién es el culpable.</p>
-                    <a href="https://1234567899ferty.github.io/detectivesXD/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-gamepad"></i>
-                        <span>Jugar Ahora</span>
-                    </a>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/detectivesXD/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                        <button onclick="openModal('modal-detectives')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-book-open"></i><span>Instrucciones</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -126,10 +139,14 @@
                 <div class="p-6 flex flex-col flex-grow">
                     <h3 class="text-xl font-bold mb-2 text-white">War Machines</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Combates tácticos y estrategia bélica directamente en tu pantalla.</p>
-                    <a href="https://1234567899ferty.github.io/guerra/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-gamepad"></i>
-                        <span>Jugar Ahora</span>
-                    </a>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/guerra/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                        <button onclick="openModal('modal-guerra')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-book-open"></i><span>Instrucciones</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -142,10 +159,14 @@
                 <div class="p-6 flex flex-col flex-grow">
                     <h3 class="text-xl font-bold mb-2 text-white">Cocina Mex</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Prepara los mejores platillos de la gastronomía mexicana contra reloj.</p>
-                    <a href="https://1234567899ferty.github.io/cosinamex/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-gamepad"></i>
-                        <span>Jugar Ahora</span>
-                    </a>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/cosinamex/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                        <button onclick="openModal('modal-cocina')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-book-open"></i><span>Instrucciones</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -158,10 +179,14 @@
                 <div class="p-6 flex flex-col flex-grow">
                     <h3 class="text-xl font-bold mb-2 text-white">Serpientes y Escaleras</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">El clásico juego de mesa de toda la vida, ahora en versión digital.</p>
-                    <a href="https://1234567899ferty.github.io/serpientesyescaleras/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-gamepad"></i>
-                        <span>Jugar Ahora</span>
-                    </a>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/serpientesyescaleras/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                        <button onclick="openModal('modal-serpientes')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-book-open"></i><span>Instrucciones</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -174,10 +199,14 @@
                 <div class="p-6 flex flex-col flex-grow">
                     <h3 class="text-xl font-bold mb-2 text-white">Ojo de Halcón</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Demuestra tu puntería y agudeza visual en este reto de reflejos.</p>
-                    <a href="https://1234567899ferty.github.io/ojo-de-alcon/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-gamepad"></i>
-                        <span>Jugar Ahora</span>
-                    </a>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/ojo-de-alcon/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                        <button onclick="openModal('modal-ojo')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-book-open"></i><span>Instrucciones</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -190,12 +219,17 @@
                 <div class="p-6 flex flex-col flex-grow">
                     <h3 class="text-xl font-bold mb-2 text-white">KEPO Alfa 1</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Una aventura llena de misterio y desafíos listos para resolverse.</p>
-                    <a href="https://1234567899ferty.github.io/kepo-alfa1/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-gamepad"></i>
-                        <span>Jugar Ahora</span>
-                    </a>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/kepo-alfa1/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                        <button onclick="openModal('modal-kepo')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-book-open"></i><span>Instrucciones</span>
+                        </button>
+                    </div>
                 </div>
             </div>
+
         </div>
     </main>
 
@@ -204,7 +238,138 @@
         <p>&copy; 2026 <strong>Fer Games</strong>. Todos los derechos reservados. Creado para jugar gratis en el navegador.</p>
     </footer>
 
-    <!-- Interactive Search and Filter Script -->
+    <!-- MODALES DE INSTRUCCIONES -->
+    
+    <!-- Modal 1: Adivina un País -->
+    <div id="modal-adivina" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-adivina')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🌍</span> Instrucciones - Adivina el País</h2>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li><strong>1. Elige cómo empezar:</strong> Selecciona "País Aleatorio" o "Elegir Manualmente".</li>
+                <li><strong>2. Modo un jugador:</strong> Presiona para esconder un país y tener que encontrarlo.</li>
+                <li><strong>3. Busca el país correcto:</strong> Haz clic en los países de la lista. Si aciertas se marca en verde con brillo; si no, se señala el error.</li>
+                <li><strong>4. Encuentra el país secreto:</strong> Al atinarle al correcto, el tiempo se detiene y muestra la victoria.</li>
+                <li><strong>5. Modos especiales (Secretos):</strong> Disfruta modos y bromas como URSS, Tlaxcala XD, Puebla XD, Zacatlán XD, Sol, Marte, etc.</li>
+            </ul>
+            <button onclick="closeModal('modal-adivina')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Modal 2: Lotería Mexicana -->
+    <div id="modal-loteria" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-loteria')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🎴</span> Instrucciones - Lotería Online</h2>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li><strong>1. Crear partida:</strong> Presiona "Crear partida" para generar un código único y compártelo con tus amigos.</li>
+                <li><strong>2. Elegir dificultad:</strong> Selecciona entre Fácil (9 cartas), Medio (12 cartas) o Difícil (24 cartas).</li>
+                <li><strong>3. Crear tu tablero:</strong> Presiona "Crear tablero" para recibir tus cartas asignadas.</li>
+                <li><strong>4. Jugar y marcar:</strong> Presiona "Siguiente carta" para sacar baraja con adivinanza. Toca la carta en tu tablero si te sale.</li>
+                <li><strong>5. Presiona "Lotería":</strong> Cuando completes todas tus cartas, presiona el botón "Lotería" para verificar tu victoria.</li>
+            </ul>
+            <button onclick="closeModal('modal-loteria')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Modal 3: Detecta al Asesino -->
+    <div id="modal-detectives" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-detectives')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🕵️</span> Instrucciones - Detecta al Asesino</h2>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li><strong>1. Abrir expediente:</strong> Presiona "Abrir Nuevo Expediente" para generar un caso único (las pruebas y culpables cambian).</li>
+                <li><strong>2. Consultar el diario:</strong> Lee el diario de la ciudad al inicio de cada día para conocer reportes y noticias.</li>
+                <li><strong>3. Interrogar sospechosos:</strong> Toma declaraciones formales con un límite de 2 preguntas por día. Analiza contradicciones.</li>
+                <li><strong>4. Investigar escena y laboratorio:</strong> Supera minijuegos de peritaje, pruebas químicas, huellas y reconstrucción de documentos.</li>
+                <li><strong>5. Juicio final:</strong> Ingresa a la audiencia final, selecciona las 3 pruebas definitivas e emite tu veredicto.</li>
+            </ul>
+            <button onclick="closeModal('modal-detectives')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Modal 4: War Machines -->
+    <div id="modal-guerra" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-guerra')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">⚔️</span> Instrucciones - War Machines</h2>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li><strong>1. Elige tu vehículo:</strong> Entra al Garaje desde el menú principal y selecciona tu tanque de combate inicial.</li>
+                <li><strong>2. Visita el taller y tienda:</strong> Usa tus monedas para mejorar blindaje, potencia de fuego o adquirir vehículos avanzados (Buggy, Juggernaut, Drones).</li>
+                <li><strong>3. Inicia el despliegue:</strong> Presiona "Jugar / Batalla" para abrir el panel de control táctico.</li>
+                <li><strong>4. Escanea al rival:</strong> Pega el código del vehículo del oponente para interceptar su señal y analizar atributos.</li>
+                <li><strong>5. Combate y recompensa:</strong> Presiona "Combatir" para activar la animación de colisión y ganar monedas de botín si tu máquina supera al rival.</li>
+            </ul>
+            <button onclick="closeModal('modal-guerra')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Modal 5: Cocina Mex -->
+    <div id="modal-cocina" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-cocina')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🍳</span> Instrucciones - Cocina Mex</h2>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li><strong>1. Juego a distancia:</strong> Organízate con un compañero mediante llamadas o mensajes a cualquier distancia.</li>
+                <li><strong>2. Rol 1 (Cliente):</strong> Selecciona platillos en el menú, genera pedido, copia el código `PED-...` y mándaselo al Chef.</li>
+                <li><strong>3. Rol 2 (Chef):</strong> Pega el código del cliente en su pantalla de cocina, carga la comanda y activa tus 5 vidas.</li>
+                <li><strong>4. Reto en cocina:</strong> Sigue la pista de receta y elige los ingredientes correctos. Ingredientes incorrectos quitan vidas (límite de 5).</li>
+                <li><strong>5. Entrega y celebración:</strong> Al terminar, el chef genera el código `FIN-...`, el cliente lo ingresa y verifica para ganar.</li>
+            </ul>
+            <button onclick="closeModal('modal-cocina')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Modal 6: Serpientes y Escaleras -->
+    <div id="modal-serpientes" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-serpientes')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🐍</span> Instrucciones - Serpientes y Escaleras</h2>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li><strong>1. Inicio:</strong> Colócate en la casilla de salida del tablero clásico digital.</li>
+                <li><strong>2. Tirar el dado:</strong> Gira el dado en tu turno para avanzar el número exacto de casillas correspondientes.</li>
+                <li><strong>3. Escaleras:</strong> Si caes en la base de una escalera, subirás rápidamente hacia arriba para ganar ventaja.</li>
+                <li><strong>4. Serpientes:</strong> Ten mucho cuidado, si caes en la cabeza de una serpiente, deslizarás tu ficha hacia abajo.</li>
+                <li><strong>5. Meta:</strong> El primer jugador en llegar o rebasar la casilla final gana la partida.</li>
+            </ul>
+            <button onclick="closeModal('modal-serpientes')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Modal 7: Ojo de Halcón -->
+    <div id="modal-ojo" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-ojo')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">👁️</span> Instrucciones - Ojo de Halcón</h2>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li><strong>1. Iniciar partida:</strong> Presiona "Comenzar Juego". El cronómetro arrancará con 15 segundos.</li>
+                <li><strong>2. Observa la cuadrícula:</strong> Verás múltiples cuadros del mismo color, pero uno tiene un tono ligeramente diferente.</li>
+                <li><strong>3. Encuentra y haz clic:</strong> Examina con atención y haz clic sobre el recuadro distinto.</li>
+                <li><strong>4. Puntos y tiempo:</strong> Si aciertas ganas 1 punto y +2 segundos extra; si fallas pierdes 2 segundos y la cuadrícula se hace más difícil.</li>
+                <li><strong>5. Fin del juego:</strong> La partida termina al agotarse el tiempo. ¡Supera tu récord personal!</li>
+            </ul>
+            <button onclick="closeModal('modal-ojo')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Modal 8: KEPO Alfa 1 -->
+    <div id="modal-kepo" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-kepo')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🎪</span> Instrucciones - KEPO El Circo Maldito</h2>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li><strong>1. Iniciar pesadilla:</strong> Presiona el botón "Iniciar Pesadilla" en el menú principal.</li>
+                <li><strong>2. Expediente 073:</strong> Lee la hoja de contexto del bosque y el caso de los desaparecidos Leo y Sofía.</li>
+                <li><strong>3. Cruza las 5 puertas:</strong> Supera Espejos, Cuerda, Camerino, Jaulas y al Boss Kepo.</li>
+                <li><strong>4. Bitácora de Elías y exploración:</strong> Revisa el generador, cuida tu barra de vida y cordura escapando de jumpscares.</li>
+                <li><strong>5. Acto final y ritmo:</strong> Rompe 4 sellos con 7 clics cada uno y supera la batalla rítmica de flechas.</li>
+                <li><strong>6. ¡Elige tu final!:</strong> Decide entre quemar el circo, perdonar a Kepo o convertirte en Kepo.</li>
+            </ul>
+            <button onclick="closeModal('modal-kepo')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Interactive Search, Filter and Modal Script -->
     <script>
         const searchInput = document.getElementById('search-input');
         const gameCards = document.querySelectorAll('.game-card');
@@ -244,6 +409,22 @@
                 });
             });
         });
+
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // Close modal when clicking outside content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('fixed') && event.target.classList.contains('bg-black/80')) {
+                event.target.classList.add('hidden');
+            }
+        }
     </script>
 </body>
 </html>
