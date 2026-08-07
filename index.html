@@ -18,9 +18,77 @@
             color: #f3f4f6;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        
+        /* Nuevas animaciones para la Intro solicitada */
+        @keyframes circleZoom {
+            0% { transform: scale(0.3); opacity: 0; }
+            40% { transform: scale(1.1); opacity: 1; }
+            60% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(30); opacity: 0; pointer-events: none; }
+        }
+        @keyframes controllerReveal {
+            0% { transform: scale(0.2) translateY(20px); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes textEmerge {
+            0% { transform: translateY(30px); opacity: 0; filter: blur(8px); }
+            100% { transform: translateY(0); opacity: 1; filter: blur(0); }
+        }
+        @keyframes textShine {
+            to { background-position: 200% center; }
+        }
+        .animate-circle-zoom {
+            animation: circleZoom 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .animate-controller-reveal {
+            animation: controllerReveal 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.8s forwards;
+            opacity: 0;
+        }
+        .animate-text-emerge {
+            animation: textEmerge 1.2s cubic-bezier(0.16, 1, 0.3, 1) 2.6s forwards;
+            opacity: 0;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
+
+    <!-- Intro animada Fer Games (Círculo con 'F G' -> Zoom -> Control -> Salen letras) -->
+    <div id="fer-intro" class="fixed inset-0 z-[100] bg-[#0b0f19] flex flex-col items-center justify-center transition-opacity duration-1000 overflow-hidden font-mono">
+        
+        <!-- Círculo inicial con las letras 'F G' que hace zoom a la pantalla -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+            <div class="w-28 h-28 bg-emerald-500 rounded-full flex items-center justify-center text-gray-950 font-black text-4xl tracking-tighter shadow-[0_0_50px_rgba(16,185,129,0.9)] animate-circle-zoom border-4 border-emerald-300">
+                F G
+            </div>
+        </div>
+
+        <!-- Contenedor del control y las letras que emergen -->
+        <div class="relative z-10 flex flex-col items-center text-center px-4">
+            
+            <!-- Control de videojuegos que aparece -->
+            <div class="w-28 h-28 bg-gray-950 border-2 border-emerald-500/60 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(16,185,129,0.5)] mb-6 animate-controller-reveal relative group">
+                <div class="absolute inset-0 rounded-full bg-emerald-500/10 animate-ping pointer-events-none"></div>
+                <i class="fa-solid fa-gamepad text-emerald-400 text-5xl drop-shadow-[0_0_15px_rgba(16,185,129,0.8)]"></i>
+            </div>
+
+            <!-- Letras FER GAMES saliendo del control -->
+            <div class="animate-text-emerge flex flex-col items-center">
+                <h2 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-300 to-emerald-400 tracking-[0.25em] uppercase mb-2" style="animation: textShine 3s linear infinite; background-size: 200% auto;">
+                    Fer Games
+                </h2>
+                <p class="text-emerald-500/80 text-xs tracking-[0.4em] uppercase font-bold neon-text">
+                    Portal de Juegos Web
+                </p>
+            </div>
+        </div>
+
+        <!-- Botón de Saltar Secuencia -->
+        <button onclick="skipIntro()" class="absolute bottom-8 px-6 py-2 bg-gray-900/60 hover:bg-emerald-500 hover:text-gray-950 border border-gray-800 hover:border-emerald-500 text-gray-400 text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-300 rounded z-30">
+            Saltar Secuencia ⚡
+        </button>
+    </div>
+
     <!-- Header -->
     <header class="border-b border-gray-800 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -46,6 +114,33 @@
             <a href="#catalogo" class="inline-block bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold px-8 py-3 rounded-xl transition-all duration-300 neon-glow transform hover:-translate-y-1">
                 <i class="fa-solid fa-play mr-2"></i> Explorar Juegos
             </a>
+        </div>
+    </section>
+
+    <!-- Seccion de Introduccion -->
+    <section class="py-12 px-4 bg-gray-950/50 border-b border-gray-800/60">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">¿Qué es <span class="text-emerald-400">Fer Games</span>?</h2>
+            <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+                Fer Games es una plataforma creada independientemente para ofrecer experiencias de juego dinámicas, interactivas y accesibles directamente desde cualquier navegador web. Diseñado con pasión por la programación y el desarrollo independiente, cada título cuenta con mecánicas únicas, retos de estrategia, misterio y diversión multijugador a distancia.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+                <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-xl">
+                    <div class="text-emerald-400 text-xl mb-2"><i class="fa-solid fa-bolt"></i></div>
+                    <h3 class="font-bold text-white mb-1">Sin Descargas</h3>
+                    <p class="text-gray-400 text-sm">Juega de forma instantánea en tu computadora o dispositivo móvil sin instalaciones pesadas.</p>
+                </div>
+                <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-xl">
+                    <div class="text-emerald-400 text-xl mb-2"><i class="fa-solid fa-book-open"></i></div>
+                    <h3 class="font-bold text-white mb-1">Guías y Reglas</h3>
+                    <p class="text-gray-400 text-sm">Cada juego incluye su propio apartado de instrucciones detalladas para dominarlo al instante.</p>
+                </div>
+                <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-xl">
+                    <div class="text-emerald-400 text-xl mb-2"><i class="fa-solid fa-users"></i></div>
+                    <h3 class="font-bold text-white mb-1">Comunidad y Retos</h3>
+                    <p class="text-gray-400 text-sm">Compite, comparte códigos y reta a tus amigos a superar tus récords en cada partida.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -80,7 +175,7 @@
                     <h3 class="text-xl font-bold mb-2 text-white">Adivina un País</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Pon a prueba tus conocimientos de geografía adivinando países del mundo.</p>
                     <div class="space-y-2">
-                        <a href="https://1234567899ferty.github.io/xdxdnosabo/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <a href="https://1234567899ferty.github.io/xdxdnosabo/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
                         </a>
                         <button onclick="openModal('modal-adivina')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
@@ -100,7 +195,7 @@
                     <h3 class="text-xl font-bold mb-2 text-white">Lotería Mexicana</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Disfruta de la tradicional Lotería mexicana adaptada para navegador.</p>
                     <div class="space-y-2">
-                        <a href="https://1234567899ferty.github.io/loteriaxdxd/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <a href="https://1234567899ferty.github.io/loteriaxdxd/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
                         </a>
                         <button onclick="openModal('modal-loteria')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
@@ -120,7 +215,7 @@
                     <h3 class="text-xl font-bold mb-2 text-white">Detecta al Asesino</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Busca pistas, analiza los escenarios y descubre quién es el culpable.</p>
                     <div class="space-y-2">
-                        <a href="https://1234567899ferty.github.io/detectivesXD/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <a href="https://1234567899ferty.github.io/detectivesXD/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
                         </a>
                         <button onclick="openModal('modal-detectives')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
@@ -140,7 +235,7 @@
                     <h3 class="text-xl font-bold mb-2 text-white">War Machines</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Combates tácticos y estrategia bélica directamente en tu pantalla.</p>
                     <div class="space-y-2">
-                        <a href="https://1234567899ferty.github.io/guerra/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <a href="https://1234567899ferty.github.io/guerra/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
                         </a>
                         <button onclick="openModal('modal-guerra')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
@@ -160,7 +255,7 @@
                     <h3 class="text-xl font-bold mb-2 text-white">Cocina Mex</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Prepara los mejores platillos de la gastronomía mexicana contra reloj.</p>
                     <div class="space-y-2">
-                        <a href="https://1234567899ferty.github.io/cosinamex/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <a href="https://1234567899ferty.github.io/cosinamex/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
                         </a>
                         <button onclick="openModal('modal-cocina')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
@@ -180,7 +275,7 @@
                     <h3 class="text-xl font-bold mb-2 text-white">Serpientes y Escaleras</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">El clásico juego de mesa de toda la vida, ahora en versión digital.</p>
                     <div class="space-y-2">
-                        <a href="https://1234567899ferty.github.io/serpientesyescaleras/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <a href="https://1234567899ferty.github.io/serpientesyescaleras/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
                         </a>
                         <button onclick="openModal('modal-serpientes')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
@@ -200,7 +295,7 @@
                     <h3 class="text-xl font-bold mb-2 text-white">Ojo de Halcón</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Demuestra tu puntería y agudeza visual en este reto de reflejos.</p>
                     <div class="space-y-2">
-                        <a href="https://1234567899ferty.github.io/ojo-de-alcon/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <a href="https://1234567899ferty.github.io/ojo-de-alcon/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
                         </a>
                         <button onclick="openModal('modal-ojo')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
@@ -220,7 +315,7 @@
                     <h3 class="text-xl font-bold mb-2 text-white">KEPO Alfa 1</h3>
                     <p class="text-gray-400 text-sm mb-6 flex-grow">Una aventura llena de misterio y desafíos listos para resolverse.</p>
                     <div class="space-y-2">
-                        <a href="https://1234567899ferty.github.io/kepo-alfa1/" target="_blank" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                        <a href="https://1234567899ferty.github.io/kepo-alfa1/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
                         </a>
                         <button onclick="openModal('modal-kepo')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
@@ -238,7 +333,7 @@
         <p>&copy; 2026 <strong>Fer Games</strong>. Todos los derechos reservados. Creado para jugar gratis en el navegador.</p>
     </footer>
 
-    <!-- MODALES DE INSTRUCCIONES -->
+    <!-- MODALES DE INSTRUCCIONES CON CONTENIDO DETALLADO -->
     
     <!-- Modal 1: Adivina un País -->
     <div id="modal-adivina" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
@@ -246,11 +341,12 @@
             <button onclick="closeModal('modal-adivina')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🌍</span> Instrucciones - Adivina el País</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Elige cómo empezar:</strong> Selecciona "País Aleatorio" o "Elegir Manualmente".</li>
-                <li><strong>2. Modo un jugador:</strong> Presiona para esconder un país y tener que encontrarlo.</li>
-                <li><strong>3. Busca el país correcto:</strong> Haz clic en los países de la lista. Si aciertas se marca en verde con brillo; si no, se señala el error.</li>
-                <li><strong>4. Encuentra el país secreto:</strong> Al atinarle al correcto, el tiempo se detiene y muestra la victoria.</li>
-                <li><strong>5. Modos especiales (Secretos):</strong> Disfruta modos y bromas como URSS, Tlaxcala XD, Puebla XD, Zacatlán XD, Sol, Marte, etc.</li>
+                <li><strong>1. Elige cómo empezar:</strong> Selecciona el modo "País Aleatorio" o "Elegir Manualmente" para iniciar tu partida.</li>
+                <li><strong>2. Modo un jugador:</strong> Activa el modo para esconder un país secreto y tener que buscarlo en el mapa o lista.</li>
+                <li><strong>3. Busca el país correcto:</strong> Presiona los países de la lista. Si te equivocas se marca en rojo con una tachuela; si aciertas se marca en verde con estrellas brillantes.</li>
+                <li><strong>4. Encuentra el país secreto:</strong> Al atinarle, el tiempo se detiene y se celebra con una animación de victoria.</li>
+                <li><strong>5. Reiniciar partida:</strong> Presiona el botón de reiniciar para iniciar una nueva ronda de inmediato.</li>
+                <li><strong>6. Modos especiales (Secretos):</strong> Disfruta modos adicionales y bromas como URSS, Tlaxcala XD, Puebla XD, Zacatlán XD, Veracruz XD, Cuaxomulco XD, Sol y Marte.</li>
             </ul>
             <button onclick="closeModal('modal-adivina')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
@@ -262,11 +358,15 @@
             <button onclick="closeModal('modal-loteria')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🎴</span> Instrucciones - Lotería Online</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Crear partida:</strong> Presiona "Crear partida" para generar un código único y compártelo con tus amigos.</li>
-                <li><strong>2. Elegir dificultad:</strong> Selecciona entre Fácil (9 cartas), Medio (12 cartas) o Difícil (24 cartas).</li>
-                <li><strong>3. Crear tu tablero:</strong> Presiona "Crear tablero" para recibir tus cartas asignadas.</li>
-                <li><strong>4. Jugar y marcar:</strong> Presiona "Siguiente carta" para sacar baraja con adivinanza. Toca la carta en tu tablero si te sale.</li>
-                <li><strong>5. Presiona "Lotería":</strong> Cuando completes todas tus cartas, presiona el botón "Lotería" para verificar tu victoria.</li>
+                <li><strong>1. Crear una partida:</strong> Presiona "Crear partida" para generar un código único y compártelo con tus amigos.</li>
+                <li><strong>2. Elegir dificultad:</strong> Selecciona el nivel de juego deseado: Fácil (9 cartas), Medio (12 cartas) o Difícil (24 cartas).</li>
+                <li><strong>3. Crear tu tablero:</strong> Presiona "Crear tablero" para que aparezcan las cartas asignadas que te tocaron.</li>
+                <li><strong>4. Iniciar el juego:</strong> Presiona "Siguiente carta" para sacar una carta de la baraja junto con su adivinanza tradicional.</li>
+                <li><strong>5. Marcar cartas:</strong> Cuando una carta de tu tablero salga en la baraja, tócala para marcarla y cambiar su apariencia.</li>
+                <li><strong>6. Continúa jugando:</strong> Sigue sacando cartas y marcando las coincidencias en tu tablero.</li>
+                <li><strong>7. Completa tu tablero:</strong> Marca todas tus cartas para estar listo para cantar la victoria.</li>
+                <li><strong>8. Presiona "Lotería":</strong> Al completar todo tu tablero, presiona el botón "Lotería" para que el sistema compruebe tus aciertos.</li>
+                <li><strong>9. ¡Ganaste!:</strong> Si todas tus cartas salieron y fueron marcadas, verás el mensaje oficial de victoria.</li>
             </ul>
             <button onclick="closeModal('modal-loteria')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
@@ -276,13 +376,17 @@
     <div id="modal-detectives" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-detectives')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🕵️</span> Instrucciones - Detecta al Asesino</h2>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🕵️</span> Instrucciones - Expediente de Investigación (Caso Noir)</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Abrir expediente:</strong> Presiona "Abrir Nuevo Expediente" para generar un caso único (las pruebas y culpables cambian).</li>
-                <li><strong>2. Consultar el diario:</strong> Lee el diario de la ciudad al inicio de cada día para conocer reportes y noticias.</li>
-                <li><strong>3. Interrogar sospechosos:</strong> Toma declaraciones formales con un límite de 2 preguntas por día. Analiza contradicciones.</li>
-                <li><strong>4. Investigar escena y laboratorio:</strong> Supera minijuegos de peritaje, pruebas químicas, huellas y reconstrucción de documentos.</li>
-                <li><strong>5. Juicio final:</strong> Ingresa a la audiencia final, selecciona las 3 pruebas definitivas e emite tu veredicto.</li>
+                <li><strong>1. Abrir el expediente:</strong> Presiona "Abrir Nuevo Expediente" para generar un caso único (las pruebas, motivos y el culpable cambian en cada partida).</li>
+                <li><strong>2. Consultar el diario:</strong> Abre el Diario de la Ciudad al inicio de cada día para leer noticias de peritaje y reportes policiales.</li>
+                <li><strong>3. Interrogar sospechosos:</strong> Tienes un límite de 2 preguntas por día para tomar la declaración formal de Marta, Carlos, Ana y Luis.</li>
+                <li><strong>4. Investigar la escena:</strong> Supera los minijuegos de inspección diaria (marcas dactilares, croquis de distancias, cronología y firmas falsas).</li>
+                <li><strong>5. Análisis de laboratorio (Día 4):</strong> Examina a fondo los 5 peritajes clave (prueba química, cámaras de seguridad, documentos triturados, huella de calzado y cerradura).</li>
+                <li><strong>6. Revisar objetivos y avanzar día:</strong> Verifica haber completado las inspecciones antes de presionar "Avanzar día".</li>
+                <li><strong>7. El Juicio Final (Día 5):</strong> En la audiencia, debes seleccionar exactamente las 3 pruebas definitivas que incriminan al culpable.</li>
+                <li><strong>8. Emitir veredicto:</strong> Selecciona al culpable en el menú desplegable y presiona "Emitir Veredicto Final".</li>
+                <li><strong>9. ¡Caso resuelto!:</strong> Si la evidencia y el acusado coinciden, cerrarás el caso con éxito.</li>
             </ul>
             <button onclick="closeModal('modal-detectives')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
@@ -294,11 +398,14 @@
             <button onclick="closeModal('modal-guerra')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">⚔️</span> Instrucciones - War Machines</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Elige tu vehículo:</strong> Entra al Garaje desde el menú principal y selecciona tu tanque de combate inicial.</li>
-                <li><strong>2. Visita el taller y tienda:</strong> Usa tus monedas para mejorar blindaje, potencia de fuego o adquirir vehículos avanzados (Buggy, Juggernaut, Drones).</li>
-                <li><strong>3. Inicia el despliegue:</strong> Presiona "Jugar / Batalla" para abrir el panel de control táctico.</li>
-                <li><strong>4. Escanea al rival:</strong> Pega el código del vehículo del oponente para interceptar su señal y analizar atributos.</li>
-                <li><strong>5. Combate y recompensa:</strong> Presiona "Combatir" para activar la animación de colisión y ganar monedas de botín si tu máquina supera al rival.</li>
+                <li><strong>1. Elige tu vehículo:</strong> Entra a la sección de Garaje desde el menú principal y elige el vehículo con el que deseas combatir (Tanque Ligero, etc.).</li>
+                <li><strong>2. Visita el taller y mejora:</strong> Utiliza tus monedas en el Taller para reforzar el blindaje o la potencia de fuego. Tu código único se actualizará.</li>
+                <li><strong>3. Compra en la tienda:</strong> Adquiere vehículos avanzados (Buggy Asalto, Juggernaut, Dron de Exploración) usando tus monedas.</li>
+                <li><strong>4. Inicia el despliegue:</strong> Presiona "Jugar / Batalla" para abrir el panel de escáner y combate táctico.</li>
+                <li><strong>5. Copia y comparte tu código:</strong> Copia el código único generado (`WM-TL1-...`) y envíaselo a un amigo para retarlo.</li>
+                <li><strong>6. Escanea al rival:</strong> Pega el código del oponente y presiona "Escanear" para interceptar su señal y analizar atributos.</li>
+                <li><strong>7. Inicia el combate:</strong> Una vez fijado el oponente, presiona "Combatir" para activar el radar y ver la animación balística.</li>
+                <li><strong>8. Victoria y recompensa:</strong> El sistema calcula el poder de fuego. Si tu máquina supera al rival, ganarás monedas de botín.</li>
             </ul>
             <button onclick="closeModal('modal-guerra')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
@@ -308,13 +415,14 @@
     <div id="modal-cocina" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-cocina')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🍳</span> Instrucciones - Cocina Mex</h2>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🍳</span> Instrucciones - Cocina Colaborativa (Cocina Mex)</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Juego a distancia:</strong> Organízate con un compañero mediante llamadas o mensajes a cualquier distancia.</li>
-                <li><strong>2. Rol 1 (Cliente):</strong> Selecciona platillos en el menú, genera pedido, copia el código `PED-...` y mándaselo al Chef.</li>
-                <li><strong>3. Rol 2 (Chef):</strong> Pega el código del cliente en su pantalla de cocina, carga la comanda y activa tus 5 vidas.</li>
-                <li><strong>4. Reto en cocina:</strong> Sigue la pista de receta y elige los ingredientes correctos. Ingredientes incorrectos quitan vidas (límite de 5).</li>
-                <li><strong>5. Entrega y celebración:</strong> Al terminar, el chef genera el código `FIN-...`, el cliente lo ingresa y verifica para ganar.</li>
+                <li><strong>1. Funcionamiento a distancia:</strong> Juega en equipo a distancia organizándote mediante llamadas o mensajes (WhatsApp, Discord) estando a cualquier distancia.</li>
+                <li><strong>2. Rol 1 (El Cliente):</strong> Entra a la sección Cliente, selecciona cantidades del menú mexicano, dificultad y haz clic en "Generar Pedido" para obtener el código `PED-...` y mándaselo al Chef.</li>
+                <li><strong>3. Rol 2 (El Chef):</strong> Entra a la sección Chef, pega el código que mandó el cliente y haz clic en "Cargar Pedido" para activar la comanda y las 5 vidas.</li>
+                <li><strong>4. El reto en la cocina y 5 vidas:</strong> Presiona Preparar. Selecciona los ingredientes correctos (se marcan en naranja). Ingredientes incorrectos ponen una X roja y quitan una vida (límite de 5 vidas).</li>
+                <li><strong>5. Finalización y entrega:</strong> Cuando el Chef cocine todo, presiona "Entregar Pedido Final" para generar el código de éxito que empieza con `FIN-...` y mándaselo al Cliente.</li>
+                <li><strong>6. Verificar y celebrar:</strong> El cliente pega el código en su sección al fondo y presiona "Verificar y Celebrar Entrega" para ver el mensaje de victoria.</li>
             </ul>
             <button onclick="closeModal('modal-cocina')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
@@ -326,11 +434,11 @@
             <button onclick="closeModal('modal-serpientes')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🐍</span> Instrucciones - Serpientes y Escaleras</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Inicio:</strong> Colócate en la casilla de salida del tablero clásico digital.</li>
-                <li><strong>2. Tirar el dado:</strong> Gira el dado en tu turno para avanzar el número exacto de casillas correspondientes.</li>
-                <li><strong>3. Escaleras:</strong> Si caes en la base de una escalera, subirás rápidamente hacia arriba para ganar ventaja.</li>
-                <li><strong>4. Serpientes:</strong> Ten mucho cuidado, si caes en la cabeza de una serpiente, deslizarás tu ficha hacia abajo.</li>
-                <li><strong>5. Meta:</strong> El primer jugador en llegar o rebasar la casilla final gana la partida.</li>
+                <li><strong>1. Inicio:</strong> Colócate en la casilla de salida del tablero digital clásico.</li>
+                <li><strong>2. Tirar el dado:</strong> Haz clic para lanzar el dado virtual y avanzar automáticamente las casillas obtenidas.</li>
+                <li><strong>3. Escaleras:</strong> Si caes al pie de una escalera, subirás rápidamente hacia las casillas superiores.</li>
+                <li><strong>4. Serpientes:</strong> Si caes en la cabeza de una serpiente, descenderás por ella perdiendo terreno.</li>
+                <li><strong>5. Meta:</strong> Sé el primer jugador en llegar a la última casilla para ganar la partida.</li>
             </ul>
             <button onclick="closeModal('modal-serpientes')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
@@ -342,11 +450,11 @@
             <button onclick="closeModal('modal-ojo')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">👁️</span> Instrucciones - Ojo de Halcón</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Iniciar partida:</strong> Presiona "Comenzar Juego". El cronómetro arrancará con 15 segundos.</li>
-                <li><strong>2. Observa la cuadrícula:</strong> Verás múltiples cuadros del mismo color, pero uno tiene un tono ligeramente diferente.</li>
+                <li><strong>1. Iniciar la partida:</strong> Presiona el botón "Comenzar Juego". El cronómetro iniciará con 15 segundos.</li>
+                <li><strong>2. Observa la cuadrícula:</strong> Verás muchos cuadros del mismo color, pero uno tiene un tono ligeramente diferente.</li>
                 <li><strong>3. Encuentra y haz clic:</strong> Examina con atención y haz clic sobre el recuadro distinto.</li>
-                <li><strong>4. Puntos y tiempo:</strong> Si aciertas ganas 1 punto y +2 segundos extra; si fallas pierdes 2 segundos y la cuadrícula se hace más difícil.</li>
-                <li><strong>5. Fin del juego:</strong> La partida termina al agotarse el tiempo. ¡Supera tu récord personal!</li>
+                <li><strong>4. Suma puntos y avanza:</strong> Si aciertas ganas 1 punto + 2 segundos extra y la cuadrícula se hace más grande y difícil. Si fallas pierdes 2 segundos.</li>
+                <li><strong>5. Fin del juego:</strong> La partida termina cuando el tiempo llega a cero. ¡Supera tu récord!</li>
             </ul>
             <button onclick="closeModal('modal-ojo')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
@@ -358,19 +466,102 @@
             <button onclick="closeModal('modal-kepo')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🎪</span> Instrucciones - KEPO El Circo Maldito</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Iniciar pesadilla:</strong> Presiona el botón "Iniciar Pesadilla" en el menú principal.</li>
-                <li><strong>2. Expediente 073:</strong> Lee la hoja de contexto del bosque y el caso de los desaparecidos Leo y Sofía.</li>
-                <li><strong>3. Cruza las 5 puertas:</strong> Supera Espejos, Cuerda, Camerino, Jaulas y al Boss Kepo.</li>
-                <li><strong>4. Bitácora de Elías y exploración:</strong> Revisa el generador, cuida tu barra de vida y cordura escapando de jumpscares.</li>
-                <li><strong>5. Acto final y ritmo:</strong> Rompe 4 sellos con 7 clics cada uno y supera la batalla rítmica de flechas.</li>
-                <li><strong>6. ¡Elige tu final!:</strong> Decide entre quemar el circo, perdonar a Kepo o convertirte en Kepo.</li>
+                <li><strong>1. Iniciar pesadilla:</strong> Presiona el botón "INICIAR PESADILLA" en el menú principal.</li>
+                <li><strong>2. Leer expediente 073:</strong> Lee la hoja de contexto del bosque y el caso de los desaparecidos Leo y Sofía con el sello "DESAPARECIDO".</li>
+                <li><strong>3. Cruzar las 5 puertas:</strong> Supera las pruebas de Espejos, Cuerda, Camerino, Jaulas y al Boss Kepo.</li>
+                <li><strong>4. Pantalla capítulo 2:</strong> Aparece el interludio "EL MOTOR MALDITO", presiona "ENTRAR AL CIRCO".</li>
+                <li><strong>5. Leer bitácora de Elías:</strong> Revisa la hoja cuadriculada del técnico y verifica el generador para mantener los corazones estables.</li>
+                <li><strong>6. Explorar el circo:</strong> Navega por las salas cuidando tu cuerda y tus niveles de vida y cordura, evitando los jumpscares.</li>
+                <li><strong>7. Acto final:</strong> Lee el diario negro del Director Anatolio sobre el ritual de los 7 payasos y el mensaje "EL OCTAVO SERÁS TÚ".</li>
+                <li><strong>8. Rompe sellos y ritmo:</strong> Rompe 4 sellos dando 7 clics en cada uno y supera la batalla rítmica de flechas (combo x7).</li>
+                <li><strong>9. ¡Elige tu final!:</strong> Decide entre quemar el circo, perdonar a Kepo o convertirte en Kepo para alcanzar tu final.</li>
             </ul>
             <button onclick="closeModal('modal-kepo')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
     </div>
 
-    <!-- Interactive Search, Filter and Modal Script -->
+    <!-- Interactive Search, Filter, Modal, Sound Effects and Intro Script -->
     <script>
+        // Web Audio API Sound Synthesizer (Sin archivos externos)
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function playSound(type) {
+            try {
+                initAudio();
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'intro') {
+                    // Sonido futurista de inicio para la intro
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(120, now);
+                    osc.frequency.exponentialRampToValueAtTime(580, now + 0.6);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
+                    osc.start(now);
+                    osc.stop(now + 0.6);
+                } else if (type === 'click') {
+                    // Sonido al hacer clic en un juego ("Jugar Ahora")
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(600, now);
+                    osc.frequency.exponentialRampToValueAtTime(300, now + 0.08);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+                    osc.start(now);
+                    osc.stop(now + 0.08);
+                } else if (type === 'instruction') {
+                    // Sonido sutil de lectura/apertura de instrucciones
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(440, now);
+                    osc.frequency.setValueAtTime(880, now + 0.08);
+                    gain.gain.setValueAtTime(0.12, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+                    osc.start(now);
+                    osc.stop(now + 0.2);
+                }
+            } catch (e) {
+                console.log("Audio not allowed yet");
+            }
+        }
+
+        // Lógica de la Intro Fer Games con sonido inicial
+        function skipIntro() {
+            const intro = document.getElementById('fer-intro');
+            if (intro) {
+                intro.style.opacity = '0';
+                setTimeout(() => intro.remove(), 1000);
+            }
+        }
+
+        window.addEventListener('load', () => {
+            // Reproducir sonido de intro al cargar la página
+            setTimeout(() => {
+                playSound('intro');
+            }, 300);
+
+            setTimeout(() => {
+                skipIntro();
+            }, 5500); // Duración total estimada de la intro
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                skipIntro();
+            }
+        });
+
         const searchInput = document.getElementById('search-input');
         const gameCards = document.querySelectorAll('.game-card');
         const filterButtons = document.querySelectorAll('.filter-btn');
@@ -410,8 +601,9 @@
             });
         });
 
-        // Modal Functions
+        // Modal Functions with Sound Trigger for Instructions
         function openModal(modalId) {
+            playSound('instruction');
             document.getElementById(modalId).classList.remove('hidden');
         }
 
@@ -421,7 +613,7 @@
 
         // Close modal when clicking outside content
         window.onclick = function(event) {
-            if (event.target.classList.contains('fixed') && event.target.classList.contains('bg-black/80')) {
+            if (event.target.classList.contains('fixed') && event.target.classList.contains('bg-black/80') && event.target.id !== 'fer-intro') {
                 event.target.classList.add('hidden');
             }
         }
