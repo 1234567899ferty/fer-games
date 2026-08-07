@@ -108,7 +108,7 @@
                 <span class="text-xl font-bold tracking-wider text-white">FER <span class="text-emerald-400">GAMES</span></span>
             </div>
             <div class="text-sm text-gray-400">
-                <span id="game-count" class="text-emerald-400 font-semibold">8</span> juegos disponibles
+                <span id="game-count" class="text-emerald-400 font-semibold">10</span> juegos disponibles
             </div>
         </div>
     </header>
@@ -336,10 +336,50 @@
                 </div>
             </div>
 
+            <!-- 9. La Torre Perdida (AG3) -->
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="la torre perdida ag3">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🏰</span>
+                    <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 text-xs font-semibold rounded-full border border-amber-500/20">Aventura</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">La Torre Perdida</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Explora estancias oscuras, recolecta objetos, descifra acertijos y escapa de la torre.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/AG3/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                        <button onclick="openModal('modal-torre')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-book-open"></i><span>Instrucciones</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. Ajedrez / Escapa del Cuarto -->
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="ajedrez escapa del cuarto">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">♟️</span>
+                    <span class="px-2.5 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/20">Estrategia</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Ajedrez Táctico</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Domina el tablero, protege a tu rey y aplica jaque mate al rival.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/escapa-del-el-cuarto/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                        <button onclick="openModal('modal-ajedrez')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-book-open"></i><span>Instrucciones</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
-    <!-- SECCIÓN DE COMENTARIOS, QUEJAS Y SUGERENCIAS (Sistema sin servidor vía Formspree con AJAX y mensajes de estado) -->
+    <!-- SECCIÓN DE COMENTARIOS, QUEJAS Y SUGERENCIAS -->
     <section class="border-t border-gray-800 bg-gray-900/40 py-12 px-4">
         <div class="container mx-auto max-w-2xl">
             <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 shadow-xl">
@@ -423,7 +463,7 @@
                 <li><strong>4. Iniciar el juego:</strong> Presiona "Siguiente carta" para sacar una carta de la baraja junto con su adivinanza tradicional.</li>
                 <li><strong>5. Marcar cartas:</strong> Cuando una carta de tu tablero salga en la baraja, tócala para marcarla y cambiar su apariencia.</li>
                 <li><strong>6. Continúa jugando:</strong> Sigue sacando cartas y marcando las coincidencias en tu tablero.</li>
-                <li><strong>7. Completa tu tablero:</strong> Marca todas tus cartas para estar listo para cantar la victoria.</li>
+                <li><strong>7. Completa tu tablero:</strong> Marca todas tu cartas para estar listo para cantar la victoria.</li>
                 <li><strong>8. Presiona "Lotería":</strong> Al completar todo tu tablero, presiona el botón "Lotería" para que el sistema compruebe tus aciertos.</li>
                 <li><strong>9. ¡Ganaste!:</strong> Si todas tus cartas salieron y fueron marcadas, verás el mensaje oficial de victoria.</li>
             </ul>
@@ -536,6 +576,58 @@
                 <li><strong>9. ¡Elige tu final!:</strong> Decide entre quemar el circo, perdonar a Kepo o convertirte en Kepo para alcanzar tu final.</li>
             </ul>
             <button onclick="closeModal('modal-kepo')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Modal 9: La Torre Perdida (AG3) -->
+    <div id="modal-torre" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-torre')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🏰</span> Instrucciones - La Torre Perdida</h2>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li><strong>1. Explora el entorno:</strong> Mira alrededor. Haz clic en objetos sospechosos para examinarlos. ¡Cada detalle cuenta!</li>
+                <li><strong>2. Recolecta objetos:</strong> Encuentra y recoge llaves, pergaminos o herramientas. ¡Se guardarán en tu inventario automáticamente!</li>
+                <li><strong>3. Usa tu inventario:</strong> Abre tu inventario y selecciona un objeto para usarlo. Tienes 4 espacios disponibles.</li>
+                <li><strong>4. Activa la linterna:</strong> En habitaciones oscuras enciende la linterna para descubrir mensajes ocultos. ¡Apareció el número 42!</li>
+                <li><strong>5. Descifra pistas:</strong> Lee las notas y resuelve los acertijos. Suma los símbolos: triángulo = 5, ¡calcula el resultado!</li>
+                <li><strong>6. Ingresa códigos:</strong> Introduce el código en el panel. Usa el teclado numérico 1-9. ¡4 dígitos para desbloquear!</li>
+                <li><strong>7. Cuida tus intentos:</strong> Solo tienes 3 intentos. Fallas = X. Te queda 1 intento. ¡Piensa antes de actuar!</li>
+                <li><strong>8. Avanza de piso:</strong> Cuando resuelvas el piso, busca la puerta. Pulsa "Subir piso" para continuar a la siguiente nivel.</li>
+                <li><strong>9. ¡Escapaste!:</strong> ¡Lo lograste! Has escapado de La Torre Perdida. Recompensa: Trofeo dorado + Misión completada.</li>
+            </ul>
+            <div class="mt-4 p-3 bg-gray-950 border border-gray-800 rounded-xl text-xs text-gray-400 space-y-1">
+                <p><strong>💡 CONSEJOS:</strong></p>
+                <p>👥 <strong>Juega con amigos:</strong> Coordina y comparte ideas en equipo.</p>
+                <p>🔍 <strong>Ningún elemento es accidente:</strong> Todo está puesto por una razón. Observa bien.</p>
+                <p>⭐ <strong>Diviértete:</strong> Experimenta y diviértete. ¡Es solo un juego!</p>
+            </div>
+            <button onclick="closeModal('modal-torre')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Modal 10: Ajedrez Táctico / Escapa del Cuarto -->
+    <div id="modal-ajedrez" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-ajedrez')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">♟️</span> Instrucciones - Ajedrez</h2>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li><strong>1. Preparar el tablero:</strong> Coloca el tablero con un cuadro blanco en la esquina inferior derecha. Las piezas blancas abajo, negras arriba. La dama va en su color: dama blanca en casilla blanca, dama negra en casilla negra.</li>
+                <li><strong>2. Objetivo:</strong> El objetivo es dar JAQUE MATE al rey rival. Es decir, atacar al rey para que no pueda escapar y quede atrapado.</li>
+                <li><strong>3. Cómo se mueven:</strong> Torre: en línea recta horizontal o vertical. Alfil: en diagonal. Caballo: en forma de L. Dama: en todas direcciones. Rey: 1 casilla a cualquier lado. Peón: 1 casilla hacia adelante.</li>
+                <li><strong>4. Turno y captura:</strong> Los jugadores mueven por turnos, primero blancas. Capturas retirando la pieza rival y ocupando su casilla.</li>
+                <li><strong>5. Jaque y jaque mate:</strong> JAQUE: el rey está amenazado. ¡Debes protegerlo! JAQUE MATE: el rey no puede escapar. ¡Partida terminada!</li>
+                <li><strong>6. Movimientos especiales:</strong> Enroque: mueve rey y torre a la vez. Captura al paso: peón captura peón que avanzó 2 casillas. Coronación: peón que llega al final se convierte en dama.</li>
+                <li><strong>7. Reglas importantes:</strong> No puedes dejar tu rey en jaque. No puedes mover a una casilla ocupada por tu propia pieza. Solo mueve una pieza por turno.</li>
+                <li><strong>8. Terminar la partida:</strong> Ganas por jaque mate. Empate por ahogado: sin movimientos legales y rey no está en jaque. Empate por acuerdo o 50 movimientos.</li>
+                <li><strong>9. ¡Ganaste!:</strong> Si diste jaque mate... ¡Felicidades! Has ganado la partida. ¡Buen juego y a practicar!</li>
+            </ul>
+            <div class="mt-4 p-3 bg-gray-950 border border-gray-800 rounded-xl text-xs text-gray-400 space-y-1">
+                <p><strong>⭐ CONSEJOS:</strong></p>
+                <p>♟️ Controla el centro</p>
+                <p>🐎 Desarrolla caballos y alfiles</p>
+                <p>👑 No saques la dama pronto</p>
+            </div>
+            <button onclick="closeModal('modal-ajedrez')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
     </div>
 
