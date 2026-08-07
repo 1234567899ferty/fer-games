@@ -107,8 +107,14 @@
                 <i class="fa-solid fa-gamepad text-emerald-400 text-2xl"></i>
                 <span class="text-xl font-bold tracking-wider text-white">FER <span class="text-emerald-400">GAMES</span></span>
             </div>
-            <div class="text-sm text-gray-400">
-                <span id="game-count" class="text-emerald-400 font-semibold">10</span> juegos disponibles
+            <div class="flex items-center space-x-4">
+                <!-- Botón de Música de Menú -->
+                <button onclick="toggleMenuMusic()" id="music-toggle-btn" class="bg-gray-900 hover:bg-emerald-500 hover:text-gray-950 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-xl text-xs font-semibold transition flex items-center space-x-1.5">
+                    <i class="fa-solid fa-music"></i><span id="music-btn-text">Música: OFF</span>
+                </button>
+                <div class="text-sm text-gray-400">
+                    <span id="game-count" class="text-emerald-400 font-semibold">10</span> juegos disponibles
+                </div>
             </div>
         </div>
     </header>
@@ -687,6 +693,65 @@
             }
         }
 
+        // --- MÚSICA DE MENÚ (Sintetizador Web Audio API en bucle) ---
+        let menuMusicInterval = null;
+        let isMusicPlaying = false;
+
+        function startMenuMusic() {
+            if (isMusicPlaying) return;
+            initAudio();
+            isMusicPlaying = true;
+            
+            const notes = [220, 247.05, 261.63, 293.66, 329.63, 349.23, 392.00, 440];
+            let step = 0;
+            
+            menuMusicInterval = setInterval(() => {
+                if (!audioCtx || audioCtx.state !== 'running') return;
+                const now = audioCtx.currentTime;
+                
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                
+                const melodyPattern = [0, 2, 4, 3, 5, 4, 2, 0, 4, 6, 7, 6, 4, 2, 0, -1];
+                const noteIndex = melodyPattern[step % melodyPattern.length];
+                
+                if (noteIndex !== -1) {
+                    osc.frequency.setValueAtTime(notes[noteIndex % notes.length], now);
+                    gain.gain.setValueAtTime(0.04, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                }
+
+                step++;
+            }, 320);
+        }
+
+        function stopMenuMusic() {
+            if (menuMusicInterval) {
+                clearInterval(menuMusicInterval);
+                menuMusicInterval = null;
+            }
+            isMusicPlaying = false;
+        }
+
+        function toggleMenuMusic() {
+            if (isMusicPlaying) {
+                stopMenuMusic();
+                document.getElementById('music-btn-text').innerText = 'Música: OFF';
+                document.getElementById('music-toggle-btn').classList.remove('bg-emerald-500', 'text-gray-950');
+                document.getElementById('music-toggle-btn').classList.add('bg-gray-900', 'text-emerald-400');
+            } else {
+                startMenuMusic();
+                document.getElementById('music-btn-text').innerText = 'Música: ON';
+                document.getElementById('music-toggle-btn').classList.remove('bg-gray-900', 'text-emerald-400');
+                document.getElementById('music-toggle-btn').classList.add('bg-emerald-500', 'text-gray-950');
+            }
+        }
+
         // Lógica de la Intro Fer Games con sonido inicial
         function skipIntro() {
             const intro = document.getElementById('fer-intro');
@@ -697,14 +762,13 @@
         }
 
         window.addEventListener('load', () => {
-            // Reproducir sonido de intro al cargar la página
             setTimeout(() => {
                 playSound('intro');
             }, 300);
 
             setTimeout(() => {
                 skipIntro();
-            }, 5500); // Duración total estimada de la intro
+            }, 5500); 
         });
 
         window.addEventListener('keydown', (e) => {
@@ -762,7 +826,6 @@
             document.getElementById(modalId).classList.add('hidden');
         }
 
-        // Close modal when clicking outside content
         window.onclick = function(event) {
             if (event.target.classList.contains('fixed') && event.target.classList.contains('bg-black/80') && event.target.id !== 'fer-intro') {
                 event.target.classList.add('hidden');
@@ -777,7 +840,6 @@
             event.preventDefault();
             const data = new FormData(event.target);
             
-            // Validar si todavía tiene el marcador de ejemplo
             if (event.target.action.includes('tu-correo-id')) {
                 formStatus.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/20');
                 formStatus.classList.add('bg-amber-500/10', 'text-amber-400', 'border', 'border-amber-500/20');
