@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fer Games - Portal de Juegos Web</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPXWTW4RF3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QPXWTW4RF3');
+    </script>
     <!-- Favicon estilo Gamer Profesional (Verde Neón y Fondo Negro) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0f19'/><circle cx='50' cy='50' r='38' fill='%2310b981' opacity='0.15'/><path d='M30 42C30 35.3726 35.3726 30 42 30H58C64.6274 30 70 35.3726 70 42V58C70 64.6274 64.6274 70 58 70H42C35.3726 70 30 64.6274 30 58V42Z' fill='%230b0f19' stroke='%2310b981' stroke-width='6'/><path d='M41 40H48V60H41V40Z' fill='%2310b981'/><path d='M35 46H54V53H35V46Z' fill='%2310b981'/><circle cx='61' cy='45' r='4' fill='%2310b981'/><circle cx='60' cy='57' r='3' fill='%2310b981'/></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -330,6 +339,54 @@
         </div>
     </main>
 
+    <!-- SECCIÓN DE COMENTARIOS, QUEJAS Y SUGERENCIAS (Sistema sin servidor vía Formspree con AJAX y mensajes de estado) -->
+    <section class="border-t border-gray-800 bg-gray-900/40 py-12 px-4">
+        <div class="container mx-auto max-w-2xl">
+            <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 shadow-xl">
+                <div class="text-center mb-6">
+                    <span class="text-3xl">📬</span>
+                    <h2 class="text-2xl font-bold text-white mt-2">Buzón de Sugerencias y Quejas</h2>
+                    <p class="text-gray-400 text-sm mt-1">¿Tienes alguna idea, problema o comentario para Fer Games? Envíalo directamente al buzón del creador (<span class="text-emerald-400">cinemalaptop80@gmail.com</span>).</p>
+                </div>
+
+                <!-- Formulario conectado a Formspree con AJAX -->
+                <form id="feedback-form" action="https://formspree.io/f/tu-correo-id" method="POST" class="space-y-4">
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-gray-400 mb-1" for="nombre">Tu Nombre o Alias</label>
+                        <input class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 text-sm transition" type="text" id="nombre" name="nombre" placeholder="Ej. JugadorX" required>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-1" for="tipo">Tipo de Mensaje</label>
+                            <select class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 text-sm transition" id="tipo" name="tipo">
+                                <option value="Sugerencia">💡 Sugerencia / Idea</option>
+                                <option value="Queja">⚠️ Queja / Bug</option>
+                                <option value="Comentario">💬 Comentario general</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-1" for="_replyto">Tu Correo (Opcional)</label>
+                            <input class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 text-sm transition" type="email" id="_replyto" name="_replyto" placeholder="tucorreo@example.com">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-gray-400 mb-1" for="mensaje">Comentario o Sugerencia</label>
+                        <textarea class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500 text-sm transition h-28 resize-none" id="mensaje" name="mensaje" placeholder="Escribe aquí tus sugerencias para los juegos o portal..." required></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="w-full bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold py-3 rounded-xl transition duration-300 flex items-center justify-center space-x-2 neon-glow">
+                        <i class="fa-solid fa-paper-plane"></i><span>Enviar al Creador</span>
+                    </button>
+
+                    <!-- Mensaje de estado dinámico -->
+                    <div id="form-status" class="hidden text-center text-sm font-semibold p-3 rounded-xl"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="border-t border-gray-800 bg-gray-950 py-8 text-center text-gray-500 text-sm">
         <p>&copy; 2026 <strong>Fer Games</strong>. Todos los derechos reservados. Creado para jugar gratis en el navegador.</p>
@@ -482,7 +539,7 @@
         </div>
     </div>
 
-    <!-- Interactive Search, Filter, Modal, Sound Effects and Intro Script -->
+    <!-- Interactive Search, Filter, Modal, Sound Effects, Intro Script and AJAX Form Handling -->
     <script>
         // Web Audio API Sound Synthesizer (Sin archivos externos)
         let audioCtx = null;
@@ -619,6 +676,55 @@
                 event.target.classList.add('hidden');
             }
         }
+
+        // Manejo del formulario de sugerencias y quejas mediante AJAX con Formspree
+        const feedbackForm = document.getElementById('feedback-form');
+        const formStatus = document.getElementById('form-status');
+
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            
+            // Validar si todavía tiene el marcador de ejemplo
+            if (event.target.action.includes('tu-correo-id')) {
+                formStatus.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/20');
+                formStatus.classList.add('bg-amber-500/10', 'text-amber-400', 'border', 'border-amber-500/20');
+                formStatus.innerHTML = `⚠️ Configura tu endpoint de Formspree en el atributo action del formulario para recibir los correos en <strong>cinemalaptop80@gmail.com</strong>.`;
+                return;
+            }
+
+            try {
+                const response = await fetch(event.target.action, {
+                    method: feedbackForm.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    formStatus.classList.remove('hidden', 'bg-amber-500/10', 'text-amber-400', 'border-amber-500/20', 'bg-red-500/10', 'text-red-400', 'border-red-500/20');
+                    formStatus.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/20');
+                    formStatus.innerHTML = "✅ ¡Gracias! Tu mensaje fue enviado correctamente a cinemalaptop80@gmail.com.";
+                    feedbackForm.reset();
+                } else {
+                    const dataError = await response.json();
+                    formStatus.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/20', 'bg-amber-500/10', 'text-amber-400', 'border-amber-500/20');
+                    formStatus.classList.add('bg-red-500/10', 'text-red-400', 'border', 'border-red-500/20');
+                    if (Object.hasOwn(dataError, 'errors')) {
+                        formStatus.innerHTML = "❌ " + dataError["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        formStatus.innerHTML = "❌ No se pudo enviar el mensaje. Inténtalo más tarde.";
+                    }
+                }
+            } catch (error) {
+                formStatus.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/20', 'bg-amber-500/10', 'text-amber-400', 'border-amber-500/20');
+                formStatus.classList.add('bg-red-500/10', 'text-red-400', 'border', 'border-red-500/20');
+                formStatus.innerHTML = "❌ Error de conexión. No se pudo enviar el mensaje. Inténtalo más tarde.";
+            }
+        }
+
+        feedbackForm.addEventListener('submit', handleFormSubmit);
     </script>
 </body>
 </html>
