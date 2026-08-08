@@ -30,7 +30,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        /* Nuevas animaciones para la Intro solicitada */
+        /* Animaciones para la Intro solicitada */
         @keyframes circleZoom {
             0% { transform: scale(0.3); opacity: 0; }
             40% { transform: scale(1.1); opacity: 1; }
@@ -64,26 +64,21 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <!-- Intro animada Fer Games (Círculo con 'F G' -> Zoom -> Control -> Salen letras) -->
+    <!-- Intro animada Fer Games -->
     <div id="fer-intro" class="fixed inset-0 z-[100] bg-[#0b0f19] flex flex-col items-center justify-center transition-opacity duration-1000 overflow-hidden font-mono">
         
-        <!-- Círculo inicial con las letras 'F G' que hace zoom a la pantalla -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
             <div class="w-28 h-28 bg-emerald-500 rounded-full flex items-center justify-center text-gray-950 font-black text-4xl tracking-tighter shadow-[0_0_50px_rgba(16,185,129,0.9)] animate-circle-zoom border-4 border-emerald-300">
                 F G
             </div>
         </div>
 
-        <!-- Contenedor del control y las letras que emergen -->
         <div class="relative z-10 flex flex-col items-center text-center px-4">
-            
-            <!-- Control de videojuegos que aparece -->
             <div class="w-28 h-28 bg-gray-950 border-2 border-emerald-500/60 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(16,185,129,0.5)] mb-6 animate-controller-reveal relative group">
                 <div class="absolute inset-0 rounded-full bg-emerald-500/10 animate-ping pointer-events-none"></div>
                 <i class="fa-solid fa-gamepad text-emerald-400 text-5xl drop-shadow-[0_0_15px_rgba(16,185,129,0.8)]"></i>
             </div>
 
-            <!-- Letras FER GAMES saliendo del control -->
             <div class="animate-text-emerge flex flex-col items-center">
                 <h2 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-300 to-emerald-400 tracking-[0.25em] uppercase mb-2" style="animation: textShine 3s linear infinite; background-size: 200% auto;">
                     Fer Games
@@ -94,7 +89,6 @@
             </div>
         </div>
 
-        <!-- Botón de Saltar Secuencia -->
         <button onclick="skipIntro()" class="absolute bottom-8 px-6 py-2 bg-gray-900/60 hover:bg-emerald-500 hover:text-gray-950 border border-gray-800 hover:border-emerald-500 text-gray-400 text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-300 rounded z-30">
             Saltar Secuencia ⚡
         </button>
@@ -108,12 +102,11 @@
                 <span class="text-xl font-bold tracking-wider text-white">FER <span class="text-emerald-400">GAMES</span></span>
             </div>
             <div class="flex items-center space-x-4">
-                <!-- Botón de Música de Menú -->
                 <button onclick="toggleMenuMusic()" id="music-toggle-btn" class="bg-gray-900 hover:bg-emerald-500 hover:text-gray-950 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-xl text-xs font-semibold transition flex items-center space-x-1.5">
                     <i class="fa-solid fa-music"></i><span id="music-btn-text">Música: OFF</span>
                 </button>
                 <div class="text-sm text-gray-400">
-                    <span id="game-count" class="text-emerald-400 font-semibold">10</span> juegos disponibles
+                    <span id="game-count" class="text-emerald-400 font-semibold">11</span> juegos disponibles
                 </div>
             </div>
         </div>
@@ -382,6 +375,26 @@
                 </div>
             </div>
 
+            <!-- 11. 3NES -->
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="3nes">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🕹️</span>
+                    <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/20">Nuevo</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">3NES</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Una experiencia interactiva clásica y retro lista para jugarse en el navegador.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/3nes-/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                        <button onclick="openModal('modal-3nes')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-book-open"></i><span>Instrucciones</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
@@ -395,7 +408,6 @@
                     <p class="text-gray-400 text-sm mt-1">¿Tienes alguna idea, problema o comentario para Fer Games? Envíalo directamente al buzón del creador (<span class="text-emerald-400">cinemalaptop80@gmail.com</span>).</p>
                 </div>
 
-                <!-- Formulario conectado a Formspree con AJAX -->
                 <form id="feedback-form" action="https://formspree.io/f/tu-correo-id" method="POST" class="space-y-4">
                     <div>
                         <label class="block text-xs uppercase font-bold text-gray-400 mb-1" for="nombre">Tu Nombre o Alias</label>
@@ -426,7 +438,6 @@
                         <i class="fa-solid fa-paper-plane"></i><span>Enviar al Creador</span>
                     </button>
 
-                    <!-- Mensaje de estado dinámico -->
                     <div id="form-status" class="hidden text-center text-sm font-semibold p-3 rounded-xl"></div>
                 </form>
             </div>
@@ -438,7 +449,7 @@
         <p>&copy; 2026 <strong>Fer Games</strong>. Todos los derechos reservados. Creado para jugar gratis en el navegador.</p>
     </footer>
 
-    <!-- MODALES DE INSTRUCCIONES CON CONTENIDO DETALLADO -->
+    <!-- MODALES DE INSTRUCCIONES -->
     
     <!-- Modal 1: Adivina un País -->
     <div id="modal-adivina" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
@@ -611,7 +622,7 @@
         </div>
     </div>
 
-    <!-- Modal 10: Ajedrez Táctico / Escapa del Cuarto -->
+    <!-- Modal 10: Ajedrez / Escapa del Cuarto -->
     <div id="modal-ajedrez" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-ajedrez')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -637,9 +648,23 @@
         </div>
     </div>
 
-    <!-- Interactive Search, Filter, Modal, Sound Effects, Intro Script and AJAX Form Handling -->
+    <!-- Modal 11: 3NES -->
+    <div id="modal-3nes" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-3nes')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🕹️</span> Instrucciones - 3NES</h2>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li><strong>1. Iniciar el juego:</strong> Haz clic en "Jugar Ahora" para abrir la aplicación o juego retro directamente en el navegador.</li>
+                <li><strong>2. Controles de juego:</strong> Utiliza las teclas indicadas en pantalla o el teclado estándar para interactuar con la interfaz.</li>
+                <li><strong>3. Objetivo:</strong> Explora la dinámica del título, supera los desafíos planteados y diviértete con la experiencia.</li>
+                <li><strong>4. Comparte y reta:</strong> Comparte el portal de Fer Games con tus amigos para que prueben este y todos los demás juegos disponibles.</li>
+            </ul>
+            <button onclick="closeModal('modal-3nes')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
-        // Web Audio API Sound Synthesizer (Sin archivos externos)
         let audioCtx = null;
 
         function initAudio() {
@@ -661,7 +686,6 @@
                 gain.connect(audioCtx.destination);
 
                 if (type === 'intro') {
-                    // Sonido futurista de inicio para la intro
                     osc.type = 'sawtooth';
                     osc.frequency.setValueAtTime(120, now);
                     osc.frequency.exponentialRampToValueAtTime(580, now + 0.6);
@@ -670,7 +694,6 @@
                     osc.start(now);
                     osc.stop(now + 0.6);
                 } else if (type === 'click') {
-                    // Sonido al hacer clic en un juego ("Jugar Ahora")
                     osc.type = 'sine';
                     osc.frequency.setValueAtTime(600, now);
                     osc.frequency.exponentialRampToValueAtTime(300, now + 0.08);
@@ -679,7 +702,6 @@
                     osc.start(now);
                     osc.stop(now + 0.08);
                 } else if (type === 'instruction') {
-                    // Sonido sutil de lectura/apertura de instrucciones
                     osc.type = 'triangle';
                     osc.frequency.setValueAtTime(440, now);
                     osc.frequency.setValueAtTime(880, now + 0.08);
@@ -693,7 +715,6 @@
             }
         }
 
-        // --- MÚSICA DE MENÚ (Sintetizador Web Audio API en bucle) ---
         let menuMusicInterval = null;
         let isMusicPlaying = false;
 
@@ -752,7 +773,6 @@
             }
         }
 
-        // Lógica de la Intro Fer Games con sonido inicial
         function skipIntro() {
             const intro = document.getElementById('fer-intro');
             if (intro) {
@@ -781,7 +801,6 @@
         const gameCards = document.querySelectorAll('.game-card');
         const filterButtons = document.querySelectorAll('.filter-btn');
 
-        // Search logic
         searchInput.addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
             gameCards.forEach(card => {
@@ -794,7 +813,6 @@
             });
         });
 
-        // Category filter logic
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterButtons.forEach(b => {
@@ -816,7 +834,6 @@
             });
         });
 
-        // Modal Functions with Sound Trigger for Instructions
         function openModal(modalId) {
             playSound('instruction');
             document.getElementById(modalId).classList.remove('hidden');
@@ -832,7 +849,6 @@
             }
         }
 
-        // Manejo del formulario de sugerencias y quejas mediante AJAX con Formspree
         const feedbackForm = document.getElementById('feedback-form');
         const formStatus = document.getElementById('form-status');
 
