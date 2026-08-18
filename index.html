@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fer Games - Portal de Juegos Web</title>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPXWTW4RF3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,7 +12,6 @@
 
       gtag('config', 'G-QPXWTW4RF3');
     </script>
-    <!-- Favicon estilo Gamer Profesional (Verde Neón y Fondo Negro) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0f19'/><circle cx='50' cy='50' r='38' fill='%2310b981' opacity='0.15'/><path d='M30 42C30 35.3726 35.3726 30 42 30H58C64.6274 30 70 35.3726 70 42V58C70 64.6274 64.6274 70 58 70H42C35.3726 70 30 64.6274 30 58V42Z' fill='%230b0f19' stroke='%2310b981' stroke-width='6'/><path d='M41 40H48V60H41V40Z' fill='%2310b981'/><path d='M35 46H54V53H35V46Z' fill='%2310b981'/><circle cx='61' cy='45' r='4' fill='%2310b981'/><circle cx='60' cy='57' r='3' fill='%2310b981'/></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -30,7 +28,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        /* Animaciones para la Intro solicitada */
         @keyframes circleZoom {
             0% { transform: scale(0.3); opacity: 0; }
             40% { transform: scale(1.1); opacity: 1; }
@@ -64,21 +61,17 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <!-- Intro animada Fer Games -->
     <div id="fer-intro" class="fixed inset-0 z-[100] bg-[#0b0f19] flex flex-col items-center justify-center transition-opacity duration-1000 overflow-hidden font-mono">
-        
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
             <div class="w-28 h-28 bg-emerald-500 rounded-full flex items-center justify-center text-gray-950 font-black text-4xl tracking-tighter shadow-[0_0_50px_rgba(16,185,129,0.9)] animate-circle-zoom border-4 border-emerald-300">
                 F G
             </div>
         </div>
-
         <div class="relative z-10 flex flex-col items-center text-center px-4">
             <div class="w-28 h-28 bg-gray-950 border-2 border-emerald-500/60 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(16,185,129,0.5)] mb-6 animate-controller-reveal relative group">
                 <div class="absolute inset-0 rounded-full bg-emerald-500/10 animate-ping pointer-events-none"></div>
                 <i class="fa-solid fa-gamepad text-emerald-400 text-5xl drop-shadow-[0_0_15px_rgba(16,185,129,0.8)]"></i>
             </div>
-
             <div class="animate-text-emerge flex flex-col items-center">
                 <h2 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-300 to-emerald-400 tracking-[0.25em] uppercase mb-2" style="animation: textShine 3s linear infinite; background-size: 200% auto;">
                     Fer Games
@@ -88,31 +81,23 @@
                 </p>
             </div>
         </div>
-
         <button onclick="skipIntro()" class="absolute bottom-8 px-6 py-2 bg-gray-900/60 hover:bg-emerald-500 hover:text-gray-950 border border-gray-800 hover:border-emerald-500 text-gray-400 text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-300 rounded z-30">
             Saltar Secuencia ⚡
         </button>
     </div>
 
-    <!-- Header -->
     <header class="border-b border-gray-800 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <i class="fa-solid fa-gamepad text-emerald-400 text-2xl"></i>
                 <span class="text-xl font-bold tracking-wider text-white">FER <span class="text-emerald-400">GAMES</span></span>
             </div>
-            <div class="flex items-center space-x-4">
-                <button onclick="toggleMenuMusic()" id="music-toggle-btn" class="bg-gray-900 hover:bg-emerald-500 hover:text-gray-950 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-xl text-xs font-semibold transition flex items-center space-x-1.5">
-                    <i class="fa-solid fa-music"></i><span id="music-btn-text">Música: OFF</span>
-                </button>
-                <div class="text-sm text-gray-400">
-                    <span id="game-count" class="text-emerald-400 font-semibold">11</span> juegos disponibles
-                </div>
+            <div class="text-sm text-gray-400">
+                <span id="game-count" class="text-emerald-400 font-semibold">19</span> juegos disponibles
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="relative py-20 px-4 text-center bg-gradient-to-b from-gray-900 to-[#0b0f19] border-b border-gray-800">
         <div class="max-w-3xl mx-auto">
             <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">
@@ -127,7 +112,6 @@
         </div>
     </section>
 
-    <!-- Seccion de Introduccion -->
     <section class="py-12 px-4 bg-gray-950/50 border-b border-gray-800/60">
         <div class="container mx-auto max-w-4xl text-center">
             <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">¿Qué es <span class="text-emerald-400">Fer Games</span>?</h2>
@@ -154,9 +138,7 @@
         </div>
     </section>
 
-    <!-- Main Content & Catalog -->
     <main id="catalogo" class="container mx-auto px-4 py-12 flex-grow">
-        <!-- Search & Filters -->
         <div class="mb-10 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="w-full md:w-96 relative">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
@@ -172,10 +154,8 @@
             </div>
         </div>
 
-        <!-- Game Grid -->
         <div id="games-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            <!-- 1. Adivina un País -->
             <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="adivina un pais">
                 <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
                     <span class="text-4xl">🌍</span>
@@ -195,7 +175,6 @@
                 </div>
             </div>
 
-            <!-- 2. Lotería Mexicana -->
             <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="loteria mexicana">
                 <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
                     <span class="text-4xl">🎴</span>
@@ -215,7 +194,6 @@
                 </div>
             </div>
 
-            <!-- 3. Detecta al Asesino -->
             <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="detecta al asesino">
                 <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
                     <span class="text-4xl">🕵️</span>
@@ -235,7 +213,6 @@
                 </div>
             </div>
 
-            <!-- 4. War Machines -->
             <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="estrategia" data-title="war machines">
                 <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
                     <span class="text-4xl">⚔️</span>
@@ -255,7 +232,6 @@
                 </div>
             </div>
 
-            <!-- 5. Cocina Mex -->
             <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="cocina mex">
                 <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
                     <span class="text-4xl">🍳</span>
@@ -275,7 +251,6 @@
                 </div>
             </div>
 
-            <!-- 6. Serpientes y Escaleras -->
             <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="serpientes y escaleras">
                 <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
                     <span class="text-4xl">🐍</span>
@@ -295,7 +270,6 @@
                 </div>
             </div>
 
-            <!-- 7. Ojo de Halcón -->
             <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="ojo de halcon">
                 <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
                     <span class="text-4xl">👁️</span>
@@ -315,7 +289,6 @@
                 </div>
             </div>
 
-            <!-- 8. KEPO Alfa 1 -->
             <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="kepo alfa 1">
                 <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
                     <span class="text-4xl">🎪</span>
@@ -335,7 +308,6 @@
                 </div>
             </div>
 
-            <!-- 9. La Torre Perdida (AG3) -->
             <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="la torre perdida ag3">
                 <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
                     <span class="text-4xl">🏰</span>
@@ -355,7 +327,6 @@
                 </div>
             </div>
 
-            <!-- 10. Ajedrez / Escapa del Cuarto -->
             <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="ajedrez escapa del cuarto">
                 <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
                     <span class="text-4xl">♟️</span>
@@ -375,22 +346,149 @@
                 </div>
             </div>
 
-            <!-- 11. 3NES -->
-            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="3nes">
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="3 en raya">
                 <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
-                    <span class="text-4xl">🕹️</span>
-                    <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/20">Nuevo</span>
+                    <span class="text-4xl">❌</span>
+                    <span class="px-2.5 py-1 bg-purple-500/10 text-purple-400 text-xs font-semibold rounded-full border border-purple-500/20">Clásico</span>
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
-                    <h3 class="text-xl font-bold mb-2 text-white">3NES</h3>
-                    <p class="text-gray-400 text-sm mb-6 flex-grow">Una experiencia interactiva clásica y retro lista para jugarse en el navegador.</p>
+                    <h3 class="text-xl font-bold mb-2 text-white">3 en Raya</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">El clásico juego de estrategia rápida para alinear tres fichas y ganar.</p>
                     <div class="space-y-2">
                         <a href="https://1234567899ferty.github.io/3nes-/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
                             <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
                         </a>
-                        <button onclick="openModal('modal-3nes')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="damas chinas">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🔴</span>
+                    <span class="px-2.5 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/20">Estrategia</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Damas Chinas</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Mueve tus fichas a través del tablero hexagonal en este reto táctico.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/damas-chinas/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="el ultimo tren">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🚆</span>
+                    <span class="px-2.5 py-1 bg-red-500/10 text-red-400 text-xs font-semibold rounded-full border border-red-500/20">Suspenso</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">El Último Tren</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Sobrevive a un viaje lleno de misterio y decisiones críticas a bordo.</p>
+                    <div class="space-y-2">
+                        <a href="https://ferty8.github.io/-ltimo-tren/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="reflejos neon">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">⚡</span>
+                    <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/20">Agilidad</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Reflejos Neón</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Pon a prueba tu velocidad mental y capacidad de reacción con estímulos visuales.</p>
+                    <div class="space-y-2">
+                        <a href="https://ferty8.github.io/Reflejos-ne-n-/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="galaxi game">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🚀</span>
+                    <span class="px-2.5 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-full border border-cyan-500/20">Arcade</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Galaxi Game</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Disfruta de la acción espacial retro esquivando y destruyendo amenazas estelares.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/galaxigame/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="estrategia" data-title="terrario">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🌱</span>
+                    <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/20">Simulación</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Terrario</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Administra y cuida tu propio ecosistema virtual en miniatura.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/terrario/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="futbol">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">⚽</span>
+                    <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 text-xs font-semibold rounded-full border border-amber-500/20">Deportes</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Fútbol</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Demuestra tu talento con el balón y anota goles increíbles en la cancha digital.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/futbol/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="sudoku">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🔢</span>
+                    <span class="px-2.5 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/20">Lógica Pro</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Sudoku</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Ejercita tu mente resolviendo cuadrículas numéricas con lógica pura y modo notas.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/sudoku/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                        <button onclick="openModal('modal-sudoku')" class="w-full text-center bg-gray-900 hover:bg-gray-800 text-emerald-400 border border-emerald-500/30 font-semibold py-2 rounded-xl transition duration-300 flex items-center justify-center space-x-2 text-sm">
                             <i class="fa-solid fa-book-open"></i><span>Instrucciones</span>
                         </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="pentatlon pentatlón">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🏅</span>
+                    <span class="px-2.5 py-1 bg-purple-500/10 text-purple-400 text-xs font-semibold rounded-full border border-purple-500/20">Deportes</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Pentatlón</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Compite en múltiples disciplinas deportivas para demostrar quién es el campeón absoluto.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/pentatl-n/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -398,7 +496,6 @@
         </div>
     </main>
 
-    <!-- SECCIÓN DE COMENTARIOS, QUEJAS Y SUGERENCIAS -->
     <section class="border-t border-gray-800 bg-gray-900/40 py-12 px-4">
         <div class="container mx-auto max-w-2xl">
             <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 shadow-xl">
@@ -444,14 +541,31 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="border-t border-gray-800 bg-gray-950 py-8 text-center text-gray-500 text-sm">
         <p>&copy; 2026 <strong>Fer Games</strong>. Todos los derechos reservados. Creado para jugar gratis en el navegador.</p>
     </footer>
 
-    <!-- MODALES DE INSTRUCCIONES -->
-    
-    <!-- Modal 1: Adivina un País -->
+    <div id="modal-sudoku" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-sudoku')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🔢</span> Instrucciones - Sudoku Pro</h2>
+            <ul class="space-y-3 text-gray-300 text-sm">
+                <li><strong>1. Objetivo Principal:</strong> Llena el tablero de 9x9 con números del 1 al 9. Cada fila, columna y caja de 3x3 no debe repetir números.</li>
+                <li><strong>2. Crear Partida:</strong> Presiona "Crear partida", genera un Sudoku único, elige tu dificultad (Fácil, Medio o Difícil) y comparte el código generado con tus amigos. El cronómetro inicia en 00:00.</li>
+                <li><strong>3. Modo Colocar:</strong> Con el modo colocar activo, haz clic en una celda vacía y luego selecciona un número del 1 al 9 para colocarlo de forma definitiva.</li>
+                <li><strong>4. Modo Notas:</strong> Cambia al modo Notas (lápiz) para escribir candidatos pequeños en las celdas y recordar opciones, ideal para resolver tableros complejos.</li>
+                <li><strong>5. Sonidos y Temario:</strong> Activa los sonidos para aciertos o errores. Consulta el temario como guía de técnicas avanzadas (Candidato único, Par oculto, X-Wing).</li>
+                <li><strong>6. Validación:</strong> El sistema marca en rojo si repites un número en la misma fila, columna o caja. Borra con el botón borrar o con la X.</li>
+                <li><strong>7. Tiempo y Pistas:</strong> El cronómetro superior cuenta tu tiempo transcurrido. Si te atoras, usa el botón "Pista +1:00" para recibir ayuda sumando tiempo extra.</li>
+                <li><strong>8. Completa el Tablero y ¡Ganaste!:</strong> Llena las 81 celdas correctamente. Al completarlas, se verifica de forma automática y aparecerá el trofeo con el mensaje ¡SUDOKU! ¡Felicidades campeón!</li>
+            </ul>
+            <div class="mt-4 p-3 bg-gray-950 border border-gray-800 rounded-xl text-xs text-gray-400 space-y-1">
+                <p><strong>⭐ CONSEJOS:</strong> Juega con lógica, no adivines. Usa notas en dificultad difícil. ¡Diviértete y buena suerte!</p>
+            </div>
+            <button onclick="closeModal('modal-sudoku')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
+        </div>
+    </div>
+
     <div id="modal-adivina" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-adivina')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -459,211 +573,117 @@
             <ul class="space-y-3 text-gray-300 text-sm">
                 <li><strong>1. Elige cómo empezar:</strong> Selecciona el modo "País Aleatorio" o "Elegir Manualmente" para iniciar tu partida.</li>
                 <li><strong>2. Modo un jugador:</strong> Activa el modo para esconder un país secreto y tener que buscarlo en el mapa o lista.</li>
-                <li><strong>3. Busca el país correcto:</strong> Presiona los países de la lista. Si te equivocas se marca en rojo con una tachuela; si aciertas se marca en verde con estrellas brillantes.</li>
+                <li><strong>3. Busca el país correcto:</strong> Presiona los países de la lista. Si te equivocas se marca en rojo; si aciertas se marca en verde con estrellas brillantes.</li>
                 <li><strong>4. Encuentra el país secreto:</strong> Al atinarle, el tiempo se detiene y se celebra con una animación de victoria.</li>
-                <li><strong>5. Reiniciar partida:</strong> Presiona el botón de reiniciar para iniciar una nueva ronda de inmediato.</li>
-                <li><strong>6. Modos especiales (Secretos):</strong> Disfruta modos adicionales y bromas como URSS, Tlaxcala XD, Puebla XD, Zacatlán XD, Veracruz XD, Cuaxomulco XD, Sol y Marte.</li>
             </ul>
             <button onclick="closeModal('modal-adivina')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
     </div>
 
-    <!-- Modal 2: Lotería Mexicana -->
     <div id="modal-loteria" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-loteria')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🎴</span> Instrucciones - Lotería Online</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Crear una partida:</strong> Presiona "Crear partida" para generar un código único y compártelo con tus amigos.</li>
-                <li><strong>2. Elegir dificultad:</strong> Selecciona el nivel de juego deseado: Fácil (9 cartas), Medio (12 cartas) o Difícil (24 cartas).</li>
-                <li><strong>3. Crear tu tablero:</strong> Presiona "Crear tablero" para que aparezcan las cartas asignadas que te tocaron.</li>
-                <li><strong>4. Iniciar el juego:</strong> Presiona "Siguiente carta" para sacar una carta de la baraja junto con su adivinanza tradicional.</li>
-                <li><strong>5. Marcar cartas:</strong> Cuando una carta de tu tablero salga en la baraja, tócala para marcarla y cambiar su apariencia.</li>
-                <li><strong>6. Continúa jugando:</strong> Sigue sacando cartas y marcando las coincidencias en tu tablero.</li>
-                <li><strong>7. Completa tu tablero:</strong> Marca todas tu cartas para estar listo para cantar la victoria.</li>
-                <li><strong>8. Presiona "Lotería":</strong> Al completar todo tu tablero, presiona el botón "Lotería" para que el sistema compruebe tus aciertos.</li>
-                <li><strong>9. ¡Ganaste!:</strong> Si todas tus cartas salieron y fueron marcadas, verás el mensaje oficial de victoria.</li>
+                <li><strong>1. Crear partida:</strong> Genera un código único y compártelo con tus amigos.</li>
+                <li><strong>2. Elegir dificultad:</strong> Fácil (9 cartas), Medio (12 cartas) o Difícil (24 cartas).</li>
+                <li><strong>3. Marcar cartas y cantar Lotería:</strong> Saca cartas de la baraja, marca tus coincidencias y presiona "Lotería" al completar tu tablero.</li>
             </ul>
             <button onclick="closeModal('modal-loteria')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
     </div>
 
-    <!-- Modal 3: Detecta al Asesino -->
     <div id="modal-detectives" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-detectives')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🕵️</span> Instrucciones - Expediente de Investigación (Caso Noir)</h2>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🕵️</span> Instrucciones - Detecta al Asesino</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Abrir el expediente:</strong> Presiona "Abrir Nuevo Expediente" para generar un caso único (las pruebas, motivos y el culpable cambian en cada partida).</li>
-                <li><strong>2. Consultar el diario:</strong> Abre el Diario de la Ciudad al inicio de cada día para leer noticias de peritaje y reportes policiales.</li>
-                <li><strong>3. Interrogar sospechosos:</strong> Tienes un límite de 2 preguntas por día para tomar la declaración formal de Marta, Carlos, Ana y Luis.</li>
-                <li><strong>4. Investigar la escena:</strong> Supera los minijuegos de inspección diaria (marcas dactilares, croquis de distancias, cronología y firmas falsas).</li>
-                <li><strong>5. Análisis de laboratorio (Día 4):</strong> Examina a fondo los 5 peritajes clave (prueba química, cámaras de seguridad, documentos triturados, huella de calzado y cerradura).</li>
-                <li><strong>6. Revisar objetivos y avanzar día:</strong> Verifica haber completado las inspecciones antes de presionar "Avanzar día".</li>
-                <li><strong>7. El Juicio Final (Día 5):</strong> En la audiencia, debes seleccionar exactamente las 3 pruebas definitivas que incriminan al culpable.</li>
-                <li><strong>8. Emitir veredicto:</strong> Selecciona al culpable en el menú desplegable y presiona "Emitir Veredicto Final".</li>
-                <li><strong>9. ¡Caso resuelto!:</strong> Si la evidencia y el acusado coinciden, cerrarás el caso con éxito.</li>
+                <li><strong>1. Abrir expediente:</strong> Genera un caso único donde las pruebas y el culpable cambian cada partida.</li>
+                <li><strong>2. Interroga y examina:</strong> Toma declaraciones a los sospechosos y analiza los peritajes de laboratorio.</li>
+                <li><strong>3. Juicio Final:</strong> Selecciona las pruebas clave y emite tu veredicto para resolver el caso.</li>
             </ul>
             <button onclick="closeModal('modal-detectives')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
     </div>
 
-    <!-- Modal 4: War Machines -->
     <div id="modal-guerra" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-guerra')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">⚔️</span> Instrucciones - War Machines</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Elige tu vehículo:</strong> Entra a la sección de Garaje desde el menú principal y elige el vehículo con el que deseas combatir (Tanque Ligero, etc.).</li>
-                <li><strong>2. Visita el taller y mejora:</strong> Utiliza tus monedas en el Taller para reforzar el blindaje o la potencia de fuego. Tu código único se actualizará.</li>
-                <li><strong>3. Compra en la tienda:</strong> Adquiere vehículos avanzados (Buggy Asalto, Juggernaut, Dron de Exploración) usando tus monedas.</li>
-                <li><strong>4. Inicia el despliegue:</strong> Presiona "Jugar / Batalla" para abrir el panel de escáner y combate táctico.</li>
-                <li><strong>5. Copia y comparte tu código:</strong> Copia el código único generado (`WM-TL1-...`) y envíaselo a un amigo para retarlo.</li>
-                <li><strong>6. Escanea al rival:</strong> Pega el código del oponente y presiona "Escanear" para interceptar su señal y analizar atributos.</li>
-                <li><strong>7. Inicia el combate:</strong> Una vez fijado el oponente, presiona "Combatir" para activar el radar y ver la animación balística.</li>
-                <li><strong>8. Victoria y recompensa:</strong> El sistema calcula el poder de fuego. Si tu máquina supera al rival, ganarás monedas de botín.</li>
+                <li><strong>1. Elige tu vehículo:</strong> Selecciona tu máquina de combate y mejórala en el taller.</li>
+                <li><strong>2. Comparte código y combate:</strong> Envía tu código único de tanque a un amigo, escanea el suyo y gana monedas en la batalla táctica.</li>
             </ul>
             <button onclick="closeModal('modal-guerra')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
     </div>
 
-    <!-- Modal 5: Cocina Mex -->
     <div id="modal-cocina" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-cocina')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🍳</span> Instrucciones - Cocina Colaborativa (Cocina Mex)</h2>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🍳</span> Instrucciones - Cocina Mex</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Funcionamiento a distancia:</strong> Juega en equipo a distancia organizándote mediante llamadas o mensajes (WhatsApp, Discord) estando a cualquier distancia.</li>
-                <li><strong>2. Rol 1 (El Cliente):</strong> Entra a la sección Cliente, selecciona cantidades del menú mexicano, dificultad y haz clic en "Generar Pedido" para obtener el código `PED-...` y mándaselo al Chef.</li>
-                <li><strong>3. Rol 2 (El Chef):</strong> Entra a la sección Chef, pega el código que mandó el cliente y haz clic en "Cargar Pedido" para activar la comanda y las 5 vidas.</li>
-                <li><strong>4. El reto en la cocina y 5 vidas:</strong> Presiona Preparar. Selecciona los ingredientes correctos (se marcan en naranja). Ingredientes incorrectos ponen una X roja y quitan una vida (límite de 5 vidas).</li>
-                <li><strong>5. Finalización y entrega:</strong> Cuando el Chef cocine todo, presiona "Entregar Pedido Final" para generar el código de éxito que empieza con `FIN-...` y mándaselo al Cliente.</li>
-                <li><strong>6. Verificar y celebrar:</strong> El cliente pega el código en su sección al fondo y presiona "Verificar y Celebrar Entrega" para ver el mensaje de victoria.</li>
+                <li><strong>1. Cliente y Chef a distancia:</strong> Un jugador genera el pedido y manda el código; el otro lo cocina seleccionando ingredientes correctos sin perder las 5 vidas.</li>
             </ul>
             <button onclick="closeModal('modal-cocina')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
     </div>
 
-    <!-- Modal 6: Serpientes y Escaleras -->
     <div id="modal-serpientes" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-serpientes')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🐍</span> Instrucciones - Serpientes y Escaleras</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Inicio:</strong> Colócate en la casilla de salida del tablero digital clásico.</li>
-                <li><strong>2. Tirar el dado:</strong> Haz clic para lanzar el dado virtual y avanzar automáticamente las casillas obtenidas.</li>
-                <li><strong>3. Escaleras:</strong> Si caes al pie de una escalera, subirás rápidamente hacia las casillas superiores.</li>
-                <li><strong>4. Serpientes:</strong> Si caes en la cabeza de una serpiente, descenderás por ella perdiendo terreno.</li>
-                <li><strong>5. Meta:</strong> Sé el primer jugador en llegar a la última casilla para ganar la partida.</li>
+                <li><strong>1. Tira el dado:</strong> Avanza casillas, sube por las escaleras para ganar ventaja y evita caer en las cabezas de las serpientes.</li>
             </ul>
             <button onclick="closeModal('modal-serpientes')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
     </div>
 
-    <!-- Modal 7: Ojo de Halcón -->
     <div id="modal-ojo" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-ojo')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">👁️</span> Instrucciones - Ojo de Halcón</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Iniciar la partida:</strong> Presiona el botón "Comenzar Juego". El cronómetro iniciará con 15 segundos.</li>
-                <li><strong>2. Observa la cuadrícula:</strong> Verás muchos cuadros del mismo color, pero uno tiene un tono ligeramente diferente.</li>
-                <li><strong>3. Encuentra y haz clic:</strong> Examina con atención y haz clic sobre el recuadro distinto.</li>
-                <li><strong>4. Suma puntos y avanza:</strong> Si aciertas ganas 1 punto + 2 segundos extra y la cuadrícula se hace más grande y difícil. Si fallas pierdes 2 segundos.</li>
-                <li><strong>5. Fin del juego:</strong> La partida termina cuando el tiempo llega a cero. ¡Supera tu récord!</li>
+                <li><strong>1. Encuentra el cuadro diferente:</strong> Haz clic en el recuadro con un tono distinto antes de que se acabe el tiempo para ganar segundos extra.</li>
             </ul>
             <button onclick="closeModal('modal-ojo')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
     </div>
 
-    <!-- Modal 8: KEPO Alfa 1 -->
     <div id="modal-kepo" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-kepo')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🎪</span> Instrucciones - KEPO El Circo Maldito</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Iniciar pesadilla:</strong> Presiona el botón "INICIAR PESADILLA" en el menú principal.</li>
-                <li><strong>2. Leer expediente 073:</strong> Lee la hoja de contexto del bosque y el caso de los desaparecidos Leo y Sofía con el sello "DESAPARECIDO".</li>
-                <li><strong>3. Cruzar las 5 puertas:</strong> Supera las pruebas de Espejos, Cuerda, Camerino, Jaulas y al Boss Kepo.</li>
-                <li><strong>4. Pantalla capítulo 2:</strong> Aparece el interludio "EL MOTOR MALDITO", presiona "ENTRAR AL CIRCO".</li>
-                <li><strong>5. Leer bitácora de Elías:</strong> Revisa la hoja cuadriculada del técnico y verifica el generador para mantener los corazones estables.</li>
-                <li><strong>6. Explorar el circo:</strong> Navega por las salas cuidando tu cuerda y tus niveles de vida y cordura, evitando los jumpscares.</li>
-                <li><strong>7. Acto final:</strong> Lee el diario negro del Director Anatolio sobre el ritual de los 7 payasos y el mensaje "EL OCTAVO SERÁS TÚ".</li>
-                <li><strong>8. Rompe sellos y ritmo:</strong> Rompe 4 sellos dando 7 clics en cada uno y supera la batalla rítmica de flechas (combo x7).</li>
-                <li><strong>9. ¡Elige tu final!:</strong> Decide entre quemar el circo, perdonar a Kepo o convertirte en Kepo para alcanzar tu final.</li>
+                <li><strong>1. Explora la pesadilla:</strong> Cruza puertas, rompe sellos, mantén estables tus corazones y toma decisiones clave para sobrevivir al circo.</li>
             </ul>
             <button onclick="closeModal('modal-kepo')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
     </div>
 
-    <!-- Modal 9: La Torre Perdida (AG3) -->
     <div id="modal-torre" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-torre')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
             <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🏰</span> Instrucciones - La Torre Perdida</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Explora el entorno:</strong> Mira alrededor. Haz clic en objetos sospechosos para examinarlos. ¡Cada detalle cuenta!</li>
-                <li><strong>2. Recolecta objetos:</strong> Encuentra y recoge llaves, pergaminos o herramientas. ¡Se guardarán en tu inventario automáticamente!</li>
-                <li><strong>3. Usa tu inventario:</strong> Abre tu inventario y selecciona un objeto para usarlo. Tienes 4 espacios disponibles.</li>
-                <li><strong>4. Activa la linterna:</strong> En habitaciones oscuras enciende la linterna para descubrir mensajes ocultos. ¡Apareció el número 42!</li>
-                <li><strong>5. Descifra pistas:</strong> Lee las notas y resuelve los acertijos. Suma los símbolos: triángulo = 5, ¡calcula el resultado!</li>
-                <li><strong>6. Ingresa códigos:</strong> Introduce el código en el panel. Usa el teclado numérico 1-9. ¡4 dígitos para desbloquear!</li>
-                <li><strong>7. Cuida tus intentos:</strong> Solo tienes 3 intentos. Fallas = X. Te queda 1 intento. ¡Piensa antes de actuar!</li>
-                <li><strong>8. Avanza de piso:</strong> Cuando resuelvas el piso, busca la puerta. Pulsa "Subir piso" para continuar a la siguiente nivel.</li>
-                <li><strong>9. ¡Escapaste!:</strong> ¡Lo lograste! Has escapado de La Torre Perdida. Recompensa: Trofeo dorado + Misión completada.</li>
+                <li><strong>1. Explora y escapa:</strong> Examina objetos, usa la linterna, descubre códigos secretos e ingresa los números para subir de piso.</li>
             </ul>
-            <div class="mt-4 p-3 bg-gray-950 border border-gray-800 rounded-xl text-xs text-gray-400 space-y-1">
-                <p><strong>💡 CONSEJOS:</strong></p>
-                <p>👥 <strong>Juega con amigos:</strong> Coordina y comparte ideas en equipo.</p>
-                <p>🔍 <strong>Ningún elemento es accidente:</strong> Todo está puesto por una razón. Observa bien.</p>
-                <p>⭐ <strong>Diviértete:</strong> Experimenta y diviértete. ¡Es solo un juego!</p>
-            </div>
             <button onclick="closeModal('modal-torre')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
     </div>
 
-    <!-- Modal 10: Ajedrez / Escapa del Cuarto -->
     <div id="modal-ajedrez" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-ajedrez')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">♟️</span> Instrucciones - Ajedrez</h2>
+            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">♟️</span> Instrucciones - Ajedrez Táctico</h2>
             <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Preparar el tablero:</strong> Coloca el tablero con un cuadro blanco en la esquina inferior derecha. Las piezas blancas abajo, negras arriba. La dama va en su color: dama blanca en casilla blanca, dama negra en casilla negra.</li>
-                <li><strong>2. Objetivo:</strong> El objetivo es dar JAQUE MATE al rey rival. Es decir, atacar al rey para que no pueda escapar y quede atrapado.</li>
-                <li><strong>3. Cómo se mueven:</strong> Torre: en línea recta horizontal o vertical. Alfil: en diagonal. Caballo: en forma de L. Dama: en todas direcciones. Rey: 1 casilla a cualquier lado. Peón: 1 casilla hacia adelante.</li>
-                <li><strong>4. Turno y captura:</strong> Los jugadores mueven por turnos, primero blancas. Capturas retirando la pieza rival y ocupando su casilla.</li>
-                <li><strong>5. Jaque y jaque mate:</strong> JAQUE: el rey está amenazado. ¡Debes protegerlo! JAQUE MATE: el rey no puede escapar. ¡Partida terminada!</li>
-                <li><strong>6. Movimientos especiales:</strong> Enroque: mueve rey y torre a la vez. Captura al paso: peón captura peón que avanzó 2 casillas. Coronación: peón que llega al final se convierte en dama.</li>
-                <li><strong>7. Reglas importantes:</strong> No puedes dejar tu rey en jaque. No puedes mover a una casilla ocupada por tu propia pieza. Solo mueve una pieza por turno.</li>
-                <li><strong>8. Terminar la partida:</strong> Ganas por jaque mate. Empate por ahogado: sin movimientos legales y rey no está en jaque. Empate por acuerdo o 50 movimientos.</li>
-                <li><strong>9. ¡Ganaste!:</strong> Si diste jaque mate... ¡Felicidades! Has ganado la partida. ¡Buen juego y a practicar!</li>
+                <li><strong>1. Jaque mate:</strong> Mueve tus piezas estratégicamente respetando sus reglas de desplazamiento hasta atrapar al rey rival.</li>
             </ul>
-            <div class="mt-4 p-3 bg-gray-950 border border-gray-800 rounded-xl text-xs text-gray-400 space-y-1">
-                <p><strong>⭐ CONSEJOS:</strong></p>
-                <p>♟️ Controla el centro</p>
-                <p>🐎 Desarrolla caballos y alfiles</p>
-                <p>👑 No saques la dama pronto</p>
-            </div>
             <button onclick="closeModal('modal-ajedrez')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
         </div>
     </div>
 
-    <!-- Modal 11: 3NES -->
-    <div id="modal-3nes" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal('modal-3nes')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-2xl font-bold text-emerald-400 mb-4 flex items-center gap-2"><span class="text-3xl">🕹️</span> Instrucciones - 3NES</h2>
-            <ul class="space-y-3 text-gray-300 text-sm">
-                <li><strong>1. Iniciar el juego:</strong> Haz clic en "Jugar Ahora" para abrir la aplicación o juego retro directamente en el navegador.</li>
-                <li><strong>2. Controles de juego:</strong> Utiliza las teclas indicadas en pantalla o el teclado estándar para interactuar con la interfaz.</li>
-                <li><strong>3. Objetivo:</strong> Explora la dinámica del título, supera los desafíos planteados y diviértete con la experiencia.</li>
-                <li><strong>4. Comparte y reta:</strong> Comparte el portal de Fer Games con tus amigos para que prueben este y todos los demás juegos disponibles.</li>
-            </ul>
-            <button onclick="closeModal('modal-3nes')" class="mt-6 w-full bg-emerald-500 text-gray-950 font-bold py-2.5 rounded-xl hover:bg-emerald-400 transition">Entendido</button>
-        </div>
-    </div>
-
-    <!-- Scripts -->
     <script>
         let audioCtx = null;
 
@@ -715,64 +735,6 @@
             }
         }
 
-        let menuMusicInterval = null;
-        let isMusicPlaying = false;
-
-        function startMenuMusic() {
-            if (isMusicPlaying) return;
-            initAudio();
-            isMusicPlaying = true;
-            
-            const notes = [220, 247.05, 261.63, 293.66, 329.63, 349.23, 392.00, 440];
-            let step = 0;
-            
-            menuMusicInterval = setInterval(() => {
-                if (!audioCtx || audioCtx.state !== 'running') return;
-                const now = audioCtx.currentTime;
-                
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.type = 'triangle';
-                
-                const melodyPattern = [0, 2, 4, 3, 5, 4, 2, 0, 4, 6, 7, 6, 4, 2, 0, -1];
-                const noteIndex = melodyPattern[step % melodyPattern.length];
-                
-                if (noteIndex !== -1) {
-                    osc.frequency.setValueAtTime(notes[noteIndex % notes.length], now);
-                    gain.gain.setValueAtTime(0.04, now);
-                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
-                    osc.connect(gain);
-                    gain.connect(audioCtx.destination);
-                    osc.start(now);
-                    osc.stop(now + 0.3);
-                }
-
-                step++;
-            }, 320);
-        }
-
-        function stopMenuMusic() {
-            if (menuMusicInterval) {
-                clearInterval(menuMusicInterval);
-                menuMusicInterval = null;
-            }
-            isMusicPlaying = false;
-        }
-
-        function toggleMenuMusic() {
-            if (isMusicPlaying) {
-                stopMenuMusic();
-                document.getElementById('music-btn-text').innerText = 'Música: OFF';
-                document.getElementById('music-toggle-btn').classList.remove('bg-emerald-500', 'text-gray-950');
-                document.getElementById('music-toggle-btn').classList.add('bg-gray-900', 'text-emerald-400');
-            } else {
-                startMenuMusic();
-                document.getElementById('music-btn-text').innerText = 'Música: ON';
-                document.getElementById('music-toggle-btn').classList.remove('bg-gray-900', 'text-emerald-400');
-                document.getElementById('music-toggle-btn').classList.add('bg-emerald-500', 'text-gray-950');
-            }
-        }
-
         function skipIntro() {
             const intro = document.getElementById('fer-intro');
             if (intro) {
@@ -782,19 +744,12 @@
         }
 
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                playSound('intro');
-            }, 300);
-
-            setTimeout(() => {
-                skipIntro();
-            }, 5500); 
+            setTimeout(() => { playSound('intro'); }, 300);
+            setTimeout(() => { skipIntro(); }, 5500);
         });
 
         window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                skipIntro();
-            }
+            if (e.key === 'Escape') { skipIntro(); }
         });
 
         const searchInput = document.getElementById('search-input');
@@ -867,9 +822,7 @@
                 const response = await fetch(event.target.action, {
                     method: feedbackForm.method,
                     body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
