@@ -15,49 +15,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0f19'/><circle cx='50' cy='50' r='38' fill='%2310b981' opacity='0.15'/><path d='M30 42C30 35.3726 35.3726 30 42 30H58C64.6274 30 70 35.3726 70 42V58C70 64.6274 64.6274 70 58 70H42C35.3726 70 30 64.6274 30 58V42Z' fill='%230b0f19' stroke='%2310b981' stroke-width='6'/><path d='M41 40H48V60H41V40Z' fill='%2310b981'/><path d='M35 46H54V53H35V46Z' fill='%2310b981'/><circle cx='61' cy='45' r='4' fill='%2310b981'/><circle cx='60' cy='57' r='3' fill='%2310b981'/></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .neon-glow {
-            box-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
-        }
-        .neon-text {
-            text-shadow: 0 0 10px rgba(0, 255, 102, 0.6);
-        }
-        body {
-            background-color: #0b0f19;
-            color: #f3f4f6;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        @keyframes circleZoom {
-            0% { transform: scale(0.3); opacity: 0; }
-            40% { transform: scale(1.1); opacity: 1; }
-            60% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(30); opacity: 0; pointer-events: none; }
-        }
-        @keyframes controllerReveal {
-            0% { transform: scale(0.2) translateY(20px); opacity: 0; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        @keyframes textEmerge {
-            0% { transform: translateY(30px); opacity: 0; filter: blur(8px); }
-            100% { transform: translateY(0); opacity: 1; filter: blur(0); }
-        }
-        @keyframes textShine {
-            to { background-position: 200% center; }
-        }
-        .animate-circle-zoom {
-            animation: circleZoom 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-        .animate-controller-reveal {
-            animation: controllerReveal 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.8s forwards;
-            opacity: 0;
-        }
-        .animate-text-emerge {
-            animation: textEmerge 1.2s cubic-bezier(0.16, 1, 0.3, 1) 2.6s forwards;
-            opacity: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="min-h-screen flex flex-col">
 
@@ -93,7 +51,7 @@
                 <span class="text-xl font-bold tracking-wider text-white">FER <span class="text-emerald-400">GAMES</span></span>
             </div>
             <div class="text-sm text-gray-400">
-                <span id="game-count" class="text-emerald-400 font-semibold">19</span> juegos disponibles
+                <span id="game-count" class="text-emerald-400 font-semibold">32</span> juegos disponibles
             </div>
         </div>
     </header>
@@ -493,6 +451,216 @@
                 </div>
             </div>
 
+            <!-- ===== Juegos nuevos ===== -->
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="caminata">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🚶</span>
+                    <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/20">Nuevo</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Caminata</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Avanza paso a paso por un recorrido lleno de obstáculos y sorpresas.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/caminata/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="cinco noches con alfonso">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🌙</span>
+                    <span class="px-2.5 py-1 bg-red-500/10 text-red-400 text-xs font-semibold rounded-full border border-red-500/20">Terror</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Cinco Noches con Alfonso</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Sobrevive cinco noches vigilando cámaras mientras algo acecha en la oscuridad.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/sinco-noches-con-alfonso/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="aprende html">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">💻</span>
+                    <span class="px-2.5 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/20">Educativo</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Aprende HTML</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Practica conceptos básicos de HTML resolviendo retos interactivos.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/aprende-html/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="flapi bears">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🐻</span>
+                    <span class="px-2.5 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-full border border-cyan-500/20">Arcade</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Flapi Bears</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Guía a tu osito volador entre obstáculos y consigue la puntuación más alta.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/flapi-bears/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="memorama">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🃏</span>
+                    <span class="px-2.5 py-1 bg-purple-500/10 text-purple-400 text-xs font-semibold rounded-full border border-purple-500/20">Memoria</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Memorama</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Encuentra las parejas de cartas iguales antes de que se acabe el tiempo.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/memorama-/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="caos en la ciudad">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🏙️</span>
+                    <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 text-xs font-semibold rounded-full border border-amber-500/20">Acción</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Caos en la Ciudad</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Sobrevive al desorden urbano esquivando peligros a toda velocidad.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/caos-en-la-ciudad/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="estrategia" data-title="tetris">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🧱</span>
+                    <span class="px-2.5 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/20">Clásico</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Tetris</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Acomoda las piezas y completa líneas en este clásico atemporal.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/tetris/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="snake">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🟢</span>
+                    <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/20">Clásico</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Snake</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Guía a la serpiente, come y crece sin chocar contigo mismo.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/snake/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="emoji crunch candy crush">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🍬</span>
+                    <span class="px-2.5 py-1 bg-purple-500/10 text-purple-400 text-xs font-semibold rounded-full border border-purple-500/20">Puzzle</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Emoji Crunch</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Combina emojis iguales en fila para sumar puntos en este puzzle adictivo.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/emoji-chunch-candie-cruch/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="numero magico">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🔮</span>
+                    <span class="px-2.5 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/20">Lógica</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Número Mágico</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Adivina el número secreto usando pistas y la menor cantidad de intentos.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/numero-magico/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="roblox">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🎮</span>
+                    <span class="px-2.5 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-full border border-cyan-500/20">Aventura</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Roblox</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Vive una aventura de bloques y retos inspirada en tus mundos favoritos.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/roblox/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="accion" data-title="pin pong ping pong">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">🏓</span>
+                    <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 text-xs font-semibold rounded-full border border-amber-500/20">Deportes</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Pin Pong</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Devuelve la pelota y vence a tu rival en este clásico de mesa arcade.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/pinpong/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 flex flex-col" data-category="mesa" data-title="tres en raya nueva version">
+                <div class="p-6 bg-gradient-to-br from-gray-800/50 to-gray-900 flex justify-between items-start">
+                    <span class="text-4xl">⭕</span>
+                    <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/20">Nuevo</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">Tres en Raya</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Nueva versión del clásico juego de alinear tres fichas en el tablero.</p>
+                    <div class="space-y-2">
+                        <a href="https://1234567899ferty.github.io/tres-en-raya/" target="_blank" onclick="playSound('click')" class="w-full text-center bg-gray-800 hover:bg-emerald-500 hover:text-gray-950 text-white font-semibold py-2.5 rounded-xl transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-gamepad"></i><span>Jugar Ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
@@ -684,170 +852,6 @@
         </div>
     </div>
 
-    <script>
-        let audioCtx = null;
-
-        function initAudio() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
-        }
-
-        function playSound(type) {
-            try {
-                initAudio();
-                const now = audioCtx.currentTime;
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-
-                if (type === 'intro') {
-                    osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(120, now);
-                    osc.frequency.exponentialRampToValueAtTime(580, now + 0.6);
-                    gain.gain.setValueAtTime(0.2, now);
-                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
-                    osc.start(now);
-                    osc.stop(now + 0.6);
-                } else if (type === 'click') {
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(600, now);
-                    osc.frequency.exponentialRampToValueAtTime(300, now + 0.08);
-                    gain.gain.setValueAtTime(0.15, now);
-                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
-                    osc.start(now);
-                    osc.stop(now + 0.08);
-                } else if (type === 'instruction') {
-                    osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(440, now);
-                    osc.frequency.setValueAtTime(880, now + 0.08);
-                    gain.gain.setValueAtTime(0.12, now);
-                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
-                    osc.start(now);
-                    osc.stop(now + 0.2);
-                }
-            } catch (e) {
-                console.log("Audio not allowed yet");
-            }
-        }
-
-        function skipIntro() {
-            const intro = document.getElementById('fer-intro');
-            if (intro) {
-                intro.style.opacity = '0';
-                setTimeout(() => intro.remove(), 1000);
-            }
-        }
-
-        window.addEventListener('load', () => {
-            setTimeout(() => { playSound('intro'); }, 300);
-            setTimeout(() => { skipIntro(); }, 5500);
-        });
-
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') { skipIntro(); }
-        });
-
-        const searchInput = document.getElementById('search-input');
-        const gameCards = document.querySelectorAll('.game-card');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-
-        searchInput.addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            gameCards.forEach(card => {
-                const title = card.getAttribute('data-title');
-                if (title.includes(term)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-
-        filterButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterButtons.forEach(b => {
-                    b.classList.remove('bg-emerald-500', 'text-gray-950', 'font-semibold');
-                    b.classList.add('bg-gray-900', 'text-gray-300');
-                });
-                btn.classList.remove('bg-gray-900', 'text-gray-300');
-                btn.classList.add('bg-emerald-500', 'text-gray-950', 'font-semibold');
-
-                const category = btn.getAttribute('data-category');
-                gameCards.forEach(card => {
-                    const cardCategory = card.getAttribute('data-category');
-                    if (category === 'all' || cardCategory === category) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        function openModal(modalId) {
-            playSound('instruction');
-            document.getElementById(modalId).classList.remove('hidden');
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-        }
-
-        window.onclick = function(event) {
-            if (event.target.classList.contains('fixed') && event.target.classList.contains('bg-black/80') && event.target.id !== 'fer-intro') {
-                event.target.classList.add('hidden');
-            }
-        }
-
-        const feedbackForm = document.getElementById('feedback-form');
-        const formStatus = document.getElementById('form-status');
-
-        async function handleFormSubmit(event) {
-            event.preventDefault();
-            const data = new FormData(event.target);
-            
-            if (event.target.action.includes('tu-correo-id')) {
-                formStatus.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/20');
-                formStatus.classList.add('bg-amber-500/10', 'text-amber-400', 'border', 'border-amber-500/20');
-                formStatus.innerHTML = `⚠️ Configura tu endpoint de Formspree en el atributo action del formulario para recibir los correos en <strong>cinemalaptop80@gmail.com</strong>.`;
-                return;
-            }
-
-            try {
-                const response = await fetch(event.target.action, {
-                    method: feedbackForm.method,
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    formStatus.classList.remove('hidden', 'bg-amber-500/10', 'text-amber-400', 'border-amber-500/20', 'bg-red-500/10', 'text-red-400', 'border-red-500/20');
-                    formStatus.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/20');
-                    formStatus.innerHTML = "✅ ¡Gracias! Tu mensaje fue enviado correctamente a cinemalaptop80@gmail.com.";
-                    feedbackForm.reset();
-                } else {
-                    const dataError = await response.json();
-                    formStatus.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/20', 'bg-amber-500/10', 'text-amber-400', 'border-amber-500/20');
-                    formStatus.classList.add('bg-red-500/10', 'text-red-400', 'border', 'border-red-500/20');
-                    if (Object.hasOwn(dataError, 'errors')) {
-                        formStatus.innerHTML = "❌ " + dataError["errors"].map(error => error["message"]).join(", ");
-                    } else {
-                        formStatus.innerHTML = "❌ No se pudo enviar el mensaje. Inténtalo más tarde.";
-                    }
-                }
-            } catch (error) {
-                formStatus.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/20', 'bg-amber-500/10', 'text-amber-400', 'border-amber-500/20');
-                formStatus.classList.add('bg-red-500/10', 'text-red-400', 'border', 'border-red-500/20');
-                formStatus.innerHTML = "❌ Error de conexión. No se pudo enviar el mensaje. Inténtalo más tarde.";
-            }
-        }
-
-        feedbackForm.addEventListener('submit', handleFormSubmit);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
