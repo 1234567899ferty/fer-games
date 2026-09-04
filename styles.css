@@ -1,0 +1,41 @@
+eon-glow {
+    box-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+}
+.neon-text {
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.6);
+}
+body {
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes circleZoom {
+    0% { transform: scale(0.3); opacity: 0; }
+    40% { transform: scale(1.1); opacity: 1; }
+    60% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(30); opacity: 0; pointer-events: none; }
+}
+@keyframes controllerReveal {
+    0% { transform: scale(0.2) translateY(20px); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+@keyframes textEmerge {
+    0% { transform: translateY(30px); opacity: 0; filter: blur(8px); }
+    100% { transform: translateY(0); opacity: 1; filter: blur(0); }
+}
+@keyframes textShine {
+    to { background-position: 200% center; }
+}
+.animate-circle-zoom {
+    animation: circleZoom 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.animate-controller-reveal {
+    animation: controllerReveal 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.8s forwards;
+    opacity: 0;
+}
+.animate-text-emerge {
+    animation: textEmerge 1.2s cubic-bezier(0.16, 1, 0.3, 1) 2.6s forwards;
+    opacity: 0;
+}
